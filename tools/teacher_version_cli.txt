@@ -1,0 +1,391 @@
+
+#### My_Teacher's Version Below ####
+"""
+K2SHBWI Command Line Interface
+"""
+
+import click
+import os
+import sys
+import json
+from pathlib import Path
+from typing import Optional
+
+from src.creator.builder import K2SHBWIBuilder
+from src.core.decoder import K2SHBWIDecoder
+from src.converters.html_converter import HTMLConverter
+from src.converters.pdf_converter import PDFConverter
+from src.converters.pptx_converter import PowerPointConverter
+
+
+@click.group()
+@click.version_option(version='1.0.0')
+def cli():
+    """
+    K2SHBWI - Interactive Image Format Tool
+    
+    Create, view, and convert K2SHBWI files.
+    """
+    pass
+
+
+@cli.command()
+@click.argument('image_path', type=click.Path(exists=True))
+@click.argument('output_path', type=click.Path())
+@click.option('--title', '-t', help='File title')
+@click.option('--author', '-a', help='Author name')
+@click.option('--description', '-d', help='Description')
+@click.option('--quality', '-q', 
+              type=click.Choice(['low', 'medium', 'high', 'ultra']),
+              default='high',
+              help='Image quality')
+@click.option('--auto-hotspots', is_flag=True, help='Auto-detect hotspots')
+@click.option('--verbose', '-v', is_flag=True, help='Verbose output')
+def create(
+    image_path: str,
+    output_path: str,
+    title: Optional[str],
+    author: Optional[str],
+    description: Optional[str],
+    quality: str,
+    auto_hotspots: bool,
+    verbose: bool
+):
+    """
+    Create K2SHBWI file from image
+    
+    Example:
+        k2shbwi create diagram.png output.k2sh -t "My Diagram" --auto-hotspots
+    """
+    try:
+        # Initialize builder
+        builder = K2SHBWIBuilder()
+        
+        # Configure compression
+        builder.configure_compression(image_quality=quality)
+        
+        # Set metadata
+        metadata = {}
+        if title:
+            metadata['title'] = title
+        if author:
+            metadata['author'] = author
+        if description:
+            metadata['description'] = description
+        
+        if metadata:
+            builder.set_metadata(metadata)
+        
+        # Set base image
+        if verbose:
+            click.echo(f"Loading image: {image_path}")
+        
+        builder.set_base_image(image_path)
+        
+        # Auto-detect hotspots if requested
+        if auto_hotspots:
+            if verbose:
+                click.echo("Auto-detecting hotspots...")
+            
+            suggestions = builder.auto_detect_hotspots()
+            
+            if verbose:
+                click.echo(f"Found {len(suggestions)} potential hotspots")
+            
+            # Apply suggestions with placeholder data
+            builder.apply_suggested_hotspots(suggestions)
+        
+        # Build file
+        if verbose:
+            click.echo("Building K2SHBWI file...")
+        
+        stats = builder.build(output_path, verbose=verbose)
+        
+        click.echo()
+        click.secho("✅ Success!", fg='green', bold=True)
+        click.echo(f"Created: {stats['output_path']}")
+        click.echo(f"Size: {stats['output_size_mb']:.2f} MB")
+        click.echo(f"Compression: {stats['compression_ratio_percent']:.1f}%")
+        
+    except Exception as e:
+        click.secho(f"❌ Error: {str(e)}", fg='red', err=True)
+        sys.exit(1)
+
+
+@cli.command()
+@click.argument('input_path', type=click.Path(exists=True))
+@click.option('--output', '-o', help='Output image path (optional)')
+@click.option('--info', is_flag=True, help='Show file info only')
+@click.option('--list-hotspots', is_flag=True, help='List all hotspots')
+@click.option('--export-data', help='Export data to JSON file')
+def info(
+    input_path: str,
+    output: Optional[str],
+    info: bool,
+    list_hotspots: bool,
+    export_data: Optional[str]
+):
+    """
+    Display information about K2SHBWI file
+    
+    Example:
+        k2shbwi info file.k2sh --list-hotspots
+    """
+    try:
+        with K2SHBWIDecoder(input_path) as decoder:
+            # Show metadata
+            metadata = decoder.get_metadata()
+            
+            click.echo()
+            click.secho("FILE INFORMATION", fg='cyan', bold=True)
+            click.echo("=" * 60)
+            
+            for key, value in metadata.items():
+                click.echo(f"{key.replace('_', ' ').title()}: {value}")
+            
+            click.echo()
+            
+            # Show statistics
+            file_size = os.path.getsize(input_path)
+            click.echo(f"File Size: {file_size / (1024 * 1024):.2f} MB")
+            
+            # List hotspots
+            if list_hotspots:
+                hotspots = decoder.get_hotspots()
+                
+                click.echo()
+                click.secho(f"HOTSPOTS ({len(hotspots)})", fg='cyan', bold=True)
+                click.echo("=" * 60)
+                
+                for i, hotspot in enumerate(hotspots, 1):
+                    click.echo(f"\n{i}. {hotspot['id'][:8]}...")
+                    click.echo(f"   Coords: {hotspot['coords']}")
+                    click.echo(f"   Shape: {hotspot['shape']}")
+                    click.echo(f"   Visible: {hotspot['visible']}")
+            
+            # Export data
+            if export_data:
+                all_data = {
+                    'metadata': metadata,
+                    'hotspots': decoder.get_hotspots()
+                }
+                
+                with open(export_data, 'w') as f:
+                    json.dump(all_data, f, indent=2)
+                
+                click.echo()
+                click.secho(f"✅ Data exported to: {export_data}", fg='green')
+            
+            # Extract base image
+            if output:
+                image = decoder.get_base_image()
+                image.save(output)
+                
+                click.echo()
+                click.secho(f"✅ Image extracted to: {output}", fg='green')
+    
+    except Exception as e:
+        click.secho(f"❌ Error: {str(e)}", fg='red', err=True)
+        sys.exit(1)
+
+
+@cli.command()
+@click.argument('input_path', type=click.Path(exists=True))
+@click.argument('output_path', type=click.Path())
+@click.option('--format', '-f',
+              type=click.Choice(['html', 'pdf', 'pptx']),
+              required=True,
+              help='Input format')
+@click.option('--quality', '-q',
+              type=click.Choice(['low', 'medium', 'high', 'ultra']),
+              default='high',
+              help='Output quality')
+@click.option('--auto-hotspots', is_flag=True, help='Auto-detect hotspots')
+@click.option('--verbose', '-v', is_flag=True, help='Verbose output')
+def convert(
+    input_path: str,
+    output_path: str,
+    format: str,
+    quality: str,
+    auto_hotspots: bool,
+    verbose: bool
+):
+    """
+    Convert HTML, PDF, or PowerPoint to K2SHBWI
+    
+    Example:
+        k2shbwi convert presentation.pptx output.k2sh -f pptx
+    """
+    try:
+        if verbose:
+            click.echo(f"Converting {format.upper()} to K2SHBWI...")
+        
+        # Select converter
+        if format == 'html':
+            converter = HTMLConverter()
+        elif format == 'pdf':
+            converter = PDFConverter()
+        elif format == 'pptx':
+            converter = PowerPointConverter()
+        else:
+            raise ValueError(f"Unsupported format: {format}")
+        
+        # Convert
+        options = {
+            'quality': quality,
+            'auto_detect_hotspots': auto_hotspots,
+            'verbose': verbose
+        }
+        
+        stats = converter.convert(input_path, output_path, options)
+        
+        click.echo()
+        click.secho("✅ Conversion complete!", fg='green', bold=True)
+        click.echo(f"Output: {output_path}")
+        click.echo(f"Size: {stats.get('output_size_mb', 0):.2f} MB")
+        
+    except Exception as e:
+        click.secho(f"❌ Error: {str(e)}", fg='red', err=True)
+        sys.exit(1)
+
+
+@cli.command()
+@click.argument('input_path', type=click.Path(exists=True))
+@click.option('--web', is_flag=True, help='Open in web browser')
+@click.option('--desktop', is_flag=True, help='Open in desktop app')
+@click.option('--port', '-p', default=8000, help='Web server port')
+def view(
+    input_path: str,
+    web: bool,
+    desktop: bool,
+    port: int
+):
+    """
+    View K2SHBWI file
+    
+    Example:
+        k2shbwi view file.k2sh --web
+    """
+    try:
+        if web:
+            # Start web viewer
+            from src.viewer.web_viewer import start_web_viewer
+            click.echo(f"Starting web viewer on http://localhost:{port}")
+            start_web_viewer(input_path, port=port)
+        
+        elif desktop:
+            # Start desktop viewer
+            from src.viewer.desktop_viewer import start_desktop_viewer
+            click.echo("Starting desktop viewer...")
+            start_desktop_viewer(input_path)
+        
+        else:
+            # Default: try desktop, fallback to web
+            try:
+                from src.viewer.desktop_viewer import start_desktop_viewer
+                start_desktop_viewer(input_path)
+            except ImportError:
+                click.echo("Desktop viewer not available, using web viewer...")
+                from src.viewer.web_viewer import start_web_viewer
+                start_web_viewer(input_path, port=port)
+    
+    except Exception as e:
+        click.secho(f"❌ Error: {str(e)}", fg='red', err=True)
+        sys.exit(1)
+
+
+@cli.command()
+@click.argument('directory', type=click.Path(exists=True))
+@click.option('--format', '-f',
+              type=click.Choice(['html', 'pdf', 'pptx']),
+              help='Input format (auto-detect if not specified)')
+@click.option('--output-dir', '-o', help='Output directory')
+@click.option('--recursive', '-r', is_flag=True, help='Recursive search')
+@click.option('--verbose', '-v', is_flag=True, help='Verbose output')
+def batch(
+    directory: str,
+    format: Optional[str],
+    output_dir: Optional[str],
+    recursive: bool,
+    verbose: bool
+):
+    """
+    Batch convert files in directory
+    
+    Example:
+        k2shbwi batch ./presentations -f pptx -o ./output -r
+    """
+    try:
+        from src.converters.batch_converter import BatchConverter
+        
+        converter = BatchConverter()
+        
+        results = converter.convert_directory(
+            input_dir=directory,
+            output_dir=output_dir or f"{directory}_k2sh",
+            format=format,
+            recursive=recursive,
+            verbose=verbose
+        )
+        
+        click.echo()
+        click.secho("✅ Batch conversion complete!", fg='green', bold=True)
+        click.echo(f"Processed: {results['total']}")
+        click.echo(f"Success: {results['success']}")
+        click.echo(f"Failed: {results['failed']}")
+        
+    except Exception as e:
+        click.secho(f"❌ Error: {str(e)}", fg='red', err=True)
+        sys.exit(1)
+
+
+@cli.command()
+@click.argument('input_path', type=click.Path(exists=True))
+def validate(input_path: str):
+    """
+    Validate K2SHBWI file
+    
+    Example:
+        k2shbwi validate file.k2sh
+    """
+    try:
+        with K2SHBWIDecoder(input_path) as decoder:
+            # Basic validation
+            click.echo("Validating file structure...")
+            
+            # Try to load components
+            metadata = decoder.get_metadata()
+            image = decoder.get_base_image()
+            hotspots = decoder.get_hotspots()
+            
+            # Run validation
+            from src.creator.validator import K2SHBWIValidator
+            
+            validator = K2SHBWIValidator()
+            is_valid = validator.validate_all(
+                image=image,
+                hotspots=hotspots,
+                metadata=metadata,
+                config={}
+            )
+            
+            # Print report
+            click.echo()
+            click.echo(validator.get_report())
+            
+            if is_valid:
+                click.secho("\n✅ File is valid!", fg='green', bold=True)
+                sys.exit(0)
+            else:
+                click.secho(f"\n❌ File has {len(validator.errors)} error(s)", 
+                           fg='red', bold=True)
+                sys.exit(1)
+    
+    except Exception as e:
+        click.secho(f"❌ Error: {str(e)}", fg='red', err=True)
+        sys.exit(1)
+
+
+if __name__ == '__main__':
+    cli()
+

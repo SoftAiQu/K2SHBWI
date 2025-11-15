@@ -1,0 +1,281 @@
+# ===================================================================
+# K2SHBWI - Python Project .gitignore Configuration
+# Last Updated: November 16, 2025
+# Purpose: Control which files/folders are tracked in Git
+# ===================================================================
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 1. PYTHON ENVIRONMENT & DEPENDENCIES
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+.env
+.env.local
+.env.*.local
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+demo/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Pip
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 2. IDE & EDITOR FILES
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+.vim/
+*.swp
+*.swo
+*~
+.*.swo
+.*.swp
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 3. OPERATING SYSTEM FILES
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+.directory
+.Trash-*
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 4. TEMPORARY & TEST OUTPUT FILES
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Test outputs (but KEEP tests/*.py source code!)
+test_output*.k2sh
+test_*.html
+test_*.pdf
+test_*.pptx
+test_decoded*.png
+test_image.png
+test_meta.json
+test_multi_*.k2sh
+test_p3_*.k2sh
+test_p4_convert.*
+TEST_RESULTS.json
+
+# Batch processing
+batch_output/
+batch_input/
+
+# Temporary output folders
+All/
+Coverage/
+High/
+improved/
+quality/
+tested/
+
+# Extracted/Demo files (but keep for reference in docs)
+cli_output.k2sh
+cli_extracted.png
+demo_final.html
+test_cli_direct.k2sh
+test_output.k2sh
+test_output.html
+test_output.pdf
+test_output.pptx
+test_output_click.html
+test_output_click.k2sh
+test_fixed.k2sh
+test_p3_batch/
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 5. DEVELOPMENT & DOCUMENTATION (Optional - Can be kept if useful)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Internal development notes (OPTIONAL - comment out if needed)
+# Note: These are kept as they contain useful context but not essential for users
+docs/conversation.txt         # Long internal conversation log
+docs/terminal.txt            # Terminal command history
+docs/where_we_stand_now_2nd_Time  # Development checkpoint
+docs/SSIM_README.md          # old SSIM testing notes
+docs/project_structure.md    # old project structure notes
+docs/README.md               # old README for developers   
+docs/README.MD               # Old README for developers  
+docs/requirements.txt    # Old requirements notes
+docs/specification.md   # Old spec notes
+
+
+# Tool development docs
+tools/cli_click_first.txt    # First attempt notes
+tools/teacher_version_cli.txt # Teaching reference
+tools/guide.html             # Old guide
+tools/guide.k2sh             # Old guide
+tools/guide.pdf              # Old guide
+tools/guide.pptx             # Old guide
+tools/smoke_sample.png       # Sample for smoke tests
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 6. PROJECT-SPECIFIC TEST/INTERNAL FILES (To be cleaned)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Old documentation (keep in /docs/archive or delete)
+# These are being organized into /docs structure:
+ANSWERS_TO_YOUR_3_QUESTIONS.md
+CLICK_CLI_MIGRATION_TODO.md
+COMPLETE_FINAL_ANSWERS.md
+COMPLETE_WORKFLOW_COMPARISON.md
+COMPLETION.md
+DELIVERY_SUMMARY.md
+DIAGNOSTIC_REPORT.md
+FINAL_PROJECT_REVIEW.md
+FINAL_SUMMARY_ALL_3_QUESTIONS.md
+FINAL_SUMMARY_REPORT.md
+FINAL_VERIFICATION_SUMMARY.md
+K2SHBWI_WORKFLOW_VISUAL.md
+MIGRATION_GUIDE.md
+PHASE2_COMPLETION_SUMMARY.md
+PRACTICAL_GETTING_STARTED.md
+PROJECT_STATUS_PHASE2_COMPLETE.md
+QUICK_REFERENCE_CARD.md
+README_START_HERE.md
+TASKS_COMPLETION_CERTIFICATE.md
+USE_CASES_AND_USER_GUIDE.md
+DEMO_PRODUCT_CONCEPT_AND_VISION.md
+ALL_TASKS_COMPLETED.md
+PROJECT_OVERVIEW_AND_GOALS.md
+
+# Project details folder (will be organized into docs)
+Project_Detailds/
+
+
+# Build info
+k2shbwi.egg-info/
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 7. KEEP THESE FILES (Critical for GitHub)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# DO NOT IGNORE:
+!README.md
+!LICENSE
+!.gitignore
+!pyproject.toml
+!requirements.txt
+!setup.py
+!setup.cfg
+
+# DO NOT IGNORE - Core source code:
+!src/
+!src/**/*.py
+
+# DO NOT IGNORE - Tests:
+!tests/
+!tests/**/*.py
+!comprehensive_test_suite.py
+
+# DO NOT IGNORE - Tools:
+!tools/
+!tools/**/*.py
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 8. GITHUB SPECIFIC
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+.github/workflows/cache/
+.github/**/secrets
+
+# ===================================================================
+# NOTES FOR MAINTENANCE:
+# ===================================================================
+# This .gitignore is organized into 8 sections for easy maintenance.
+# Each section has clear comments explaining what files are ignored and why.
+#
+# SECTIONS:
+# 1. Python Environment & Dependencies
+# 2. IDE & Editor Files
+# 3. Operating System Files
+# 4. Temporary & Test Output Files
+# 5. Development & Documentation
+# 6. Project-Specific Test/Internal Files
+# 7. Critical Files to Keep
+# 8. GitHub Specific
+#
+# TO MODIFY:
+# - Add new entries to appropriate section
+# - Update the Last Updated date at top
+# - Add comments explaining why file/folder is ignored
+# - Keep "KEEP THESE FILES" section updated with negation rules
+# ===================================================================

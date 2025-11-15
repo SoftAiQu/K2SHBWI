@@ -1,0 +1,47 @@
+name: Tests and SSIM benchmark
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test-and-benchmark:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies (requirements.txt or fallback)
+        shell: bash
+        run: |
+          if [ -f requirements.txt ]; then
+            python -m pip install -r requirements.txt;
+          else
+            python -m pip install --upgrade pip;
+            python -m pip install pillow pytest numpy scikit-image || true;
+          fi
+
+      - name: Run tests
+        run: pytest -q
+
+      - name: Run SSIM micro-benchmark (best-effort)
+        shell: bash
+        continue-on-error: true
+        run: |
+          python tools/ssim_benchmark.py --output tools/ssim_benchmark_output.json || true
+
+      - name: Upload benchmark artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ssim-benchmark
+          path: |
+            tools/ssim_benchmark_output.json
+            tools/ssim_benchmark_output-*.json

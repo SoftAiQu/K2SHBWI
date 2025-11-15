@@ -1,0 +1,469 @@
+#!/usr/bin/env python3
+"""
+K2SHBWI Click-based CLI - Teacher's improved version
+Provides 8 main commands with better UX and structured output
+"""
+
+import sys
+import os
+from pathlib import Path
+from typing import Optional, Dict, Any
+import json
+
+# Add parent directory to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+import click
+from src.core.encoder import K2SHBWIEncoder
+from src.core.decoder import K2SHBWIDecoder
+from src.creator.builder import K2SHBWIBuilder
+from src.creator.hotspot_mapper import Hotspot
+
+
+class ClickCLI:
+    """Click-based CLI interface for K2SHBWI"""
+    
+    def __init__(self):
+        self.encoder = K2SHBWIEncoder()
+        self.decoder = K2SHBWIDecoder()
+    
+    def format_output(self, data: Dict[str, Any], verbose: bool = False) -> str:
+        """Format output for display"""
+        if verbose:
+            return json.dumps(data, indent=2)
+        else:
+            # Summary format
+            if "status" in data:
+                return f"✓ {data.get('message', 'Success')}"
+            return json.dumps(data, indent=2)
+
+
+# Initialize CLI
+cli_instance = ClickCLI()
+
+
+@click.group()
+@click.version_option(version="1.0.0", prog_name="k2shbwi")
+def cli():
+    """K2SHBWI - Interactive Image Encoding with Click-based CLI
+    
+    8 main commands for comprehensive K2SHBWI file management:
+    - create: Create new K2SHBWI file from image
+    - info: Display K2SHBWI file information
+    - convert: Convert K2SHBWI to other formats (HTML, PDF, PPTX)
+    - view: Display K2SHBWI file (web or desktop viewer)
+    - batch: Process multiple files in batch
+    - validate: Validate K2SHBWI file integrity
+    - encode: Encode image with hotspots
+    - decode: Decode K2SHBWI file
+    """
+    pass
+
+
+@cli.command()
+@click.option('--image', '-i', required=True, type=click.Path(exists=True),
+              help='Path to input image file')
+@click.option('--output', '-o', required=True, type=click.Path(),
+              help='Path to output K2SHBWI file')
+@click.option('--metadata', '-m', type=click.Path(exists=True),
+              help='Path to JSON metadata file (optional)')
+@click.option('--hotspots', '-h', type=click.Path(exists=True),
+              help='Path to JSON hotspots file (optional)')
+@click.option('--verbose', '-v', is_flag=True, default=False,
+              help='Verbose output')
+def create(image, output, metadata, hotspots, verbose):
+    """Create a new K2SHBWI file from an image with optional metadata and hotspots
+    
+    Examples:
+        k2shbwi create -i image.png -o output.k2sh
+        k2shbwi create -i image.png -o output.k2sh -m metadata.json -h hotspots.json
+    """
+    try:
+        builder = K2SHBWIBuilder()
+        
+        # Set base image
+        builder.set_base_image(image)
+        click.echo(f"✓ Image loaded: {image}")
+        
+        # Load metadata if provided
+        if metadata:
+            with open(metadata, 'r') as f:
+                meta_data = json.load(f)
+            builder.set_metadata(meta_data)
+            click.echo(f"✓ Metadata loaded: {metadata}")
+        
+        # Load hotspots if provided
+        hotspot_count = 0
+        if hotspots:
+            with open(hotspots, 'r') as f:
+                hotspots_data = json.load(f)
+            for hs in hotspots_data:
+                # Extract coordinates and data from hotspot
+                coords = hs.get('coords', (0, 0, 100, 100))
+                data = hs.get('data', {})
+                builder.add_hotspot(coords, data)
+                hotspot_count += 1
+            click.echo(f"✓ Hotspots loaded: {hotspot_count} hotspots")
+        
+        # Build K2SHBWI file
+        stats = builder.build(output_path=output, verbose=False)
+        click.echo(f"✓ K2SHBWI file created: {output}")
+        
+        if verbose:
+            click.echo(json.dumps(stats, indent=2))
+        else:
+            click.echo(f"  Size: {stats.get('output_size_mb', 0):.2f} MB")
+            
+    except Exception as e:
+        click.echo(f"✗ Error: {str(e)}", err=True)
+        sys.exit(1)
+
+
+@cli.command()
+@click.argument('k2shfile', type=click.Path(exists=True))
+@click.option('--verbose', '-v', is_flag=True, default=False,
+              help='Verbose output with full details')
+def info(k2shfile, verbose):
+    """Display information about a K2SHBWI file
+    
+    Shows file metadata, hotspot count, compression info, etc.
+    """
+    try:
+        decoder = K2SHBWIDecoder()
+        decoder.decode(k2shfile)
+        
+        # Extract components from decoder instance attributes
+        header = decoder.header
+        metadata = decoder.get_metadata()
+        hotspots = decoder.get_hotspots()
+        
+        hotspot_count = len(hotspots) if hotspots else 0
+        
+        click.echo("K2SHBWI File Information")
+        click.echo("=" * 50)
+        click.echo(f"File: {k2shfile}")
+        click.echo(f"Version: {header.version if header else 'unknown'}")
+        click.echo(f"Hotspots: {hotspot_count}")
+        click.echo(f"Flags: {bin(header.flags) if header else 'N/A'}")
+        
+        if verbose and metadata:
+            click.echo("\nMetadata:")
+            click.echo(json.dumps(metadata, indent=2, default=str))
+        if verbose and hotspots:
+            click.echo("\nHotspots Summary:")
+            click.echo(f"  Total: {hotspot_count}")
+            
+    except Exception as e:
+        click.echo(f"✗ Error: {str(e)}", err=True)
+        sys.exit(1)
+
+
+@cli.command()
+@click.argument('k2shfile', type=click.Path(exists=True))
+@click.option('--format', '-f', type=click.Choice(['html', 'pdf', 'pptx']),
+              required=True, help='Output format')
+@click.option('--output', '-o', type=click.Path(),
+              help='Output file path (auto-generated if not provided)')
+@click.option('--verbose', '-v', is_flag=True, default=False,
+              help='Verbose output')
+def convert(k2shfile, format, output, verbose):
+    """Convert K2SHBWI file to other formats (HTML, PDF, PPTX)
+    
+    Converts K2SHBWI files to presentation or web formats.
+    """
+    try:
+        if not output:
+            base = Path(k2shfile).stem
+            output = f"{base}.{format}"
+        
+        # Import converter based on format
+        if format == 'html':
+            from src.converters.html_converter import HTMLConverter
+            converter = HTMLConverter()
+        elif format == 'pdf':
+            from src.converters.pdf_converter import PDFConverter
+            converter = PDFConverter()
+        elif format == 'pptx':
+            from src.converters.pptx_converter import PPTXConverter
+            converter = PPTXConverter()
+        else:
+            raise ValueError(f"Unknown format: {format}")
+        
+        stats = converter.convert(k2shfile, output)
+        click.echo(f"✓ Converted to {format.upper()}: {output}")
+        
+        if verbose:
+            click.echo(json.dumps(stats, indent=2))
+        else:
+            click.echo(f"  Size: {stats.get('output_size', 'unknown')} bytes")
+            
+    except ImportError:
+        click.echo(f"✗ Converter for {format.upper()} not yet implemented", err=True)
+        sys.exit(1)
+    except Exception as e:
+        click.echo(f"✗ Error: {str(e)}", err=True)
+        sys.exit(1)
+
+
+@cli.command()
+@click.argument('k2shfile', type=click.Path(exists=True))
+@click.option('--viewer', '-v', type=click.Choice(['web', 'desktop']),
+              default='web', help='Viewer type')
+def view(k2shfile, viewer):
+    """Display K2SHBWI file using web or desktop viewer
+    
+    Opens file in interactive viewer for exploration.
+    """
+    try:
+        if viewer == 'web':
+            from src.viewers.web_viewer import WebViewer
+            viewer_obj = WebViewer()
+        elif viewer == 'desktop':
+            from src.viewers.desktop_viewer import DesktopViewer
+            viewer_obj = DesktopViewer()
+        else:
+            raise ValueError(f"Unknown viewer: {viewer}")
+        
+        viewer_obj.view(k2shfile)
+        click.echo(f"✓ Opened in {viewer} viewer")
+        
+    except ImportError:
+        click.echo(f"✗ {viewer.capitalize()} viewer not yet implemented", err=True)
+        sys.exit(1)
+    except Exception as e:
+        click.echo(f"✗ Error: {str(e)}", err=True)
+        sys.exit(1)
+
+
+@cli.command()
+@click.argument('input_dir', type=click.Path(exists=True, file_okay=False))
+@click.option('--output-dir', '-o', type=click.Path(), default='./output',
+              help='Output directory for batch results')
+@click.option('--verbose', '-v', is_flag=True, default=False,
+              help='Verbose output')
+def batch(input_dir, output_dir, verbose):
+    """Process multiple files in batch
+    
+    Batch create K2SHBWI files from images in a directory.
+    """
+    try:
+        input_path = Path(input_dir)
+        output_path = Path(output_dir)
+        output_path.mkdir(parents=True, exist_ok=True)
+        
+        # Find all image files
+        image_extensions = {'.png', '.jpg', '.jpeg', '.bmp', '.gif'}
+        image_files = [f for f in input_path.iterdir() 
+                      if f.suffix.lower() in image_extensions]
+        
+        if not image_files:
+            click.echo(f"✗ No image files found in {input_dir}")
+            sys.exit(1)
+        
+        click.echo(f"Processing {len(image_files)} files...")
+        stats_list = []
+        
+        for idx, img_file in enumerate(image_files, 1):
+            try:
+                output_file = output_path / f"{img_file.stem}.k2sh"
+                builder = K2SHBWIBuilder()
+                builder.set_base_image(str(img_file))
+                stats = builder.build(output_path=str(output_file), verbose=False)
+                
+                click.echo(f"  [{idx}/{len(image_files)}] {img_file.name} → {output_file.name}")
+                stats_list.append({"file": img_file.name, "status": "success"})
+                
+            except Exception as e:
+                click.echo(f"  [{idx}/{len(image_files)}] {img_file.name} - FAILED: {str(e)}")
+                stats_list.append({"file": img_file.name, "status": "failed", "error": str(e)})
+        
+        click.echo(f"✓ Batch processing complete")
+        click.echo(f"  Successful: {sum(1 for s in stats_list if s['status'] == 'success')}")
+        click.echo(f"  Failed: {sum(1 for s in stats_list if s['status'] == 'failed')}")
+        
+        if verbose:
+            click.echo("\nDetails:")
+            click.echo(json.dumps(stats_list, indent=2))
+            
+    except Exception as e:
+        click.echo(f"✗ Error: {str(e)}", err=True)
+        sys.exit(1)
+
+
+@cli.command()
+@click.argument('k2shfile', type=click.Path(exists=True))
+@click.option('--verbose', '-v', is_flag=True, default=False,
+              help='Verbose output with all checks')
+def validate(k2shfile, verbose):
+    """Validate K2SHBWI file integrity
+    
+    Checks file structure, compression, metadata, and hotspots.
+    """
+    try:
+        decoder = K2SHBWIDecoder()
+        
+        # Try to decode - if it succeeds, file is valid
+        result = decoder.decode(k2shfile)
+        
+        # Extract components
+        if isinstance(result, tuple) and len(result) >= 4:
+            header, metadata, hotspots, data = result[:4]
+        else:
+            header = getattr(result, 'header', {})
+            metadata = getattr(result, 'metadata', {})
+            hotspots = getattr(result, 'hotspots', [])
+        
+        hotspot_count = len(hotspots) if hotspots else 0
+        is_valid = True
+        
+        click.echo("K2SHBWI Validation Report")
+        click.echo("=" * 50)
+        click.echo(f"File: {k2shfile}")
+        click.echo(f"Structure: ✓ Valid")
+        click.echo(f"Hotspots: ✓ {hotspot_count} hotspots")
+        click.echo(f"Metadata: ✓ Present" if metadata else "Metadata: ✓ None")
+        
+        click.echo("")
+        if is_valid:
+            click.echo("✓ File is VALID")
+        else:
+            click.echo("✗ File is INVALID")
+            sys.exit(1)
+        
+        if verbose:
+            click.echo("\nFile Size: {:.2f} KB".format(Path(k2shfile).stat().st_size / 1024))
+            
+    except Exception as e:
+        click.echo(f"✗ Validation failed: {str(e)}", err=True)
+        sys.exit(1)
+
+
+@cli.command()
+@click.option('--image', '-i', required=True, type=click.Path(exists=True),
+              help='Path to input image')
+@click.option('--output', '-o', required=True, type=click.Path(),
+              help='Path to output K2SHBWI file')
+@click.option('--metadata', '-m', type=click.Path(exists=True),
+              help='Path to JSON metadata file')
+@click.option('--hotspots', '-h', type=click.Path(exists=True),
+              help='Path to JSON hotspots file')
+@click.option('--verbose', '-v', is_flag=True, default=False,
+              help='Verbose output')
+def encode(image, output, metadata, hotspots, verbose):
+    """Encode image with metadata and hotspots to K2SHBWI format
+    
+    Low-level encoding with advanced compression options.
+    """
+    try:
+        builder = K2SHBWIBuilder()
+        
+        # Load image
+        builder.set_base_image(image)
+        click.echo(f"✓ Image loaded: {image}")
+        
+        # Add metadata
+        if metadata:
+            with open(metadata, 'r') as f:
+                meta_data = json.load(f)
+            builder.set_metadata(meta_data)
+            click.echo(f"✓ Metadata added")
+        
+        # Add hotspots
+        hotspot_count = 0
+        if hotspots:
+            with open(hotspots, 'r') as f:
+                hotspots_data = json.load(f)
+            for hs in hotspots_data:
+                coords = hs.get('coords', (0, 0, 100, 100))
+                data = hs.get('data', {})
+                builder.add_hotspot(coords, data)
+                hotspot_count += 1
+            click.echo(f"✓ Hotspots added: {hotspot_count}")
+        
+        # Encode
+        stats = builder.build(output_path=output, verbose=False)
+        click.echo(f"✓ Encoded and saved: {output}")
+        
+        if verbose:
+            click.echo("\nEncoding Statistics:")
+            click.echo(json.dumps(stats, indent=2))
+        else:
+            click.echo(f"  File size: {stats.get('output_size_mb', 0):.2f} MB")
+            
+    except Exception as e:
+        click.echo(f"✗ Error: {str(e)}", err=True)
+        sys.exit(1)
+
+
+@cli.command()
+@click.argument('k2shfile', type=click.Path(exists=True))
+@click.option('--output', '-o', type=click.Path(),
+              help='Output image path (auto-generated if not provided)')
+@click.option('--extract-metadata', is_flag=True, default=False,
+              help='Extract metadata to separate JSON file')
+@click.option('--extract-hotspots', is_flag=True, default=False,
+              help='Extract hotspots to separate JSON file')
+@click.option('--verbose', '-v', is_flag=True, default=False,
+              help='Verbose output')
+def decode(k2shfile, output, extract_metadata, extract_hotspots, verbose):
+    """Decode K2SHBWI file back to image and components
+    
+    Extracts image, metadata, and hotspots from K2SHBWI file.
+    """
+    try:
+        if not output:
+            output = Path(k2shfile).stem + "_decoded.png"
+        
+        decoder = K2SHBWIDecoder()
+        result = decoder.decode(k2shfile)
+        
+        # Extract components
+        if isinstance(result, tuple) and len(result) >= 4:
+            header, metadata, hotspots, data = result[:4]
+        else:
+            header = getattr(result, 'header', {})
+            metadata = getattr(result, 'metadata', {})
+            hotspots = getattr(result, 'hotspots', [])
+            data = getattr(result, 'image_data', {})
+        
+        # Save image
+        from PIL import Image
+        import io
+        image_data = data if isinstance(data, bytes) else data.get('image_data', b'')
+        if image_data:
+            img = Image.open(io.BytesIO(image_data))
+            img.save(output)
+            click.echo(f"✓ Image extracted: {output}")
+        else:
+            click.echo(f"✗ No image data found in K2SHBWI file")
+        
+        # Extract metadata if requested
+        if extract_metadata and metadata:
+            meta_file = Path(output).stem + "_metadata.json"
+            with open(meta_file, 'w') as f:
+                json.dump(metadata, f, indent=2, default=str)
+            click.echo(f"✓ Metadata extracted: {meta_file}")
+        
+        # Extract hotspots if requested
+        if extract_hotspots and hotspots:
+            hotspots_file = Path(output).stem + "_hotspots.json"
+            with open(hotspots_file, 'w') as f:
+                json.dump(hotspots, f, indent=2, default=str)
+            click.echo(f"✓ Hotspots extracted: {hotspots_file}")
+        
+        click.echo(f"✓ Decode complete")
+        
+        if verbose:
+            click.echo(f"\nFile Size: {Path(k2shfile).stat().st_size / 1024:.2f} KB")
+            if metadata:
+                click.echo(f"Metadata keys: {list(metadata.keys()) if isinstance(metadata, dict) else 'N/A'}")
+            if hotspots:
+                click.echo(f"Hotspots count: {len(hotspots)}")
+            
+    except Exception as e:
+        click.echo(f"✗ Error: {str(e)}", err=True)
+        sys.exit(1)
+
+
+if __name__ == '__main__':
+    cli()

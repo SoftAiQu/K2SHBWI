@@ -1,0 +1,181 @@
+# K2SHBWI Format: Complete Project Structure & Development Roadmap
+
+## 🏗️ PROJECT ARCHITECTURE
+````
+k2shbwi-project/
+│
+├── README.md
+├── requirements.txt
+├── LICENSE
+├── .gitignore
+│
+├── docs/
+│   ├── specification.md          # K2SHBWI format specification
+│   ├── algorithms.md              # Algorithm documentation
+│   ├── api-reference.md           # API documentation
+│   └── user-guide.md              # End-user guide
+│
+├── src/
+│   ├── __init__.py
+│   │
+│   ├── core/
+│   │   ├── __init__.py
+│   │   ├── format_spec.py        # K2SHBWI format definition
+│   │   ├── encoder.py            # File encoding engine
+│   │   ├── decoder.py            # File decoding engine
+│   │   └── compression.py        # Advanced compression algorithms
+│   │
+│   ├── creator/
+│   │   ├── __init__.py
+│   │   ├── builder.py            # High-level K2SHBWI builder API
+│   │   ├── hotspot_mapper.py    # Hotspot coordinate mapping
+│   │   ├── data_layer.py         # Data layer management
+│   │   └── validator.py          # Content validation
+│   │
+│   ├── viewer/
+│   │   ├── __init__.py
+│   │   ├── renderer.py           # Rendering engine
+│   │   ├── interaction.py        # Click/interaction handler
+│   │   ├── web_viewer.py         # Flask/FastAPI web viewer
+│   │   └── desktop_viewer.py    # PyQt6 desktop viewer
+│   │
+│   ├── algorithms/
+│   │   ├── __init__.py
+│   │   ├── smart_compression.py  # AI-powered compression
+│   │   ├── hotspot_detection.py  # Auto hotspot detection
+│   │   ├── data_optimization.py  # Data structure optimization
+│   │   └── lazy_loading.py       # Progressive loading engine
+│   │
+│   ├── converters/
+│   │   ├── __init__.py
+│   │   ├── html_converter.py     # HTML/React → K2SHBWI
+│   │   ├── pdf_converter.py      # PDF → K2SHBWI
+│   │   ├── pptx_converter.py     # PowerPoint → K2SHBWI
+│   │   └── svg_converter.py      # SVG → K2SHBWI
+│   │
+│   └── utils/
+│       ├── __init__.py
+│       ├── image_processor.py    # Image optimization
+│       ├── json_minifier.py      # JSON compression
+│       └── cache_manager.py      # Caching system
+│
+├── tests/
+│   ├── __init__.py
+│   ├── test_encoder.py
+│   ├── test_decoder.py
+│   ├── test_compression.py
+│   ├── test_viewer.py
+│   └── test_converters.py
+│
+├── examples/
+│   ├── astronomy_detector.py     # Your astronomy example
+│   ├── medical_anatomy.py        # Medical diagram example
+│   ├── interactive_tutorial.py   # Educational content
+│   └── product_comparison.py     # Business use case
+│
+├── tools/
+│   ├── cli.py                    # Command-line tool
+│   ├── gui_creator.py            # GUI creator application
+│   └── batch_converter.py        # Batch conversion tool
+│
+└── viewer_app/
+    ├── web/                      # Web-based viewer
+    │   ├── app.py
+    │   ├── static/
+    │   └── templates/
+    │
+    └── desktop/                  # Desktop viewer app
+        ├── main.py
+        ├── ui/
+        └── resources/
+````
+
+
+#### All of the command for testing:-
+ python -m tools.ssim_benchmark
+
+
+***) Unique command :---------------->>>>>>>>>>>>>>>>>>
+(venv) PS C:\Users\RITAM JASH\K2SHBWI> Get-ChildItem -LiteralPath .\src\core\ -File | Select-Object Name,Length | Format-Table -AutoSize
+
+
+
+
+Changes_code into our formt_spec.py these line:-
+
+class CompressionType(Enum):
+    """Supported compression algorithms"""
+    NONE = 0
+    ZLIB = 1
+    BROTLI = 2
+    LZMA = 3
+    ZSTD = 4  # Added support for Zstandard
+    
+    @classmethod
+    def get_compressor(cls, comp_type: 'CompressionType') -> callable:
+        """Get the compression function for the given type"""
+        if comp_type == cls.NONE:
+            return lambda x: x
+        elif comp_type == cls.ZLIB:
+            return lambda x: zlib.compress(x, level=9)
+        elif comp_type == cls.BROTLI:
+            import brotli
+            return lambda x: brotli.compress(x)
+        elif comp_type == cls.LZMA:
+            import lzma
+            return lambda x: lzma.compress(x)
+        elif comp_type == cls.ZSTD:
+            # Defer import of zstandard until actually used. If it's not
+            # installed, raise a descriptive CompressionError.
+            try:
+                try:
+                    # dynamic import to avoid top-level import errors in environments
+                    # where zstandard isn't installed (helps linters/IDEs too)
+                    import importlib
+                    zstd = importlib.import_module('zstandard')
+                except Exception:
+                    raise CompressionError(
+                        "zstandard (zstd) library is not installed. "
+                        "Install with: pip install zstandard"
+                    )
+            except Exception as e:  # ImportError or similar
+                raise CompressionError(
+                    "zstandard (zstd) library is not installed. "
+                    "Install with: pip install zstandard"
+                )
+
+            def zstd_compress(b: bytes) -> bytes:
+                c = zstd.ZstdCompressor()
+                return c.compress(b)
+
+            return zstd_compress
+        raise ValueError(f"Unsupported compression type: {comp_type}")
+
+    @classmethod
+    def get_decompressor(cls, comp_type: 'CompressionType') -> callable:
+        """Get the decompression function for the given type"""
+        if comp_type == cls.NONE:
+            return lambda x: x
+        elif comp_type == cls.ZLIB:
+            return zlib.decompress
+        elif comp_type == cls.BROTLI:
+            import brotli
+            return brotli.decompress
+        elif comp_type == cls.LZMA:
+            import lzma
+            return lzma.decompress
+        elif comp_type == cls.ZSTD:
+            try:
+                import zstandard as zstd
+            except Exception:
+                raise CompressionError(
+                    "zstandard (zstd) library is not installed. "
+                    "Install with: pip install zstandard"
+                )
+
+            def zstd_decompress(b: bytes) -> bytes:
+                d = zstd.ZstdDecompressor()
+                return d.decompress(b)
+
+            return zstd_decompress
+        raise ValueError(f"Unsupported compression type: {comp_type}")

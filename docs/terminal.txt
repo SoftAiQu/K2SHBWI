@@ -1,0 +1,55 @@
+(venv) PS C:\Users\RITAM JASH\K2SHBWI> cd 'c:\Users\RITAM JASH\K2SHBWI'; Get-ChildItem -File -Filter '*.md' | Where-Object {$_.Name -match '(README|COMPLETION|FINAL|WORKFLOW)'} | Select-Object Name, @{Name='Size KB';Expression={[math]::Round($_.Length/1KB,2)}} | Format-Table -AutoSize
+
+Name                            Size KB
+----                            -------
+COMPLETE_WORKFLOW_COMPARISON.md   45.83
+COMPLETION.md                     14.01
+FINAL_PROJECT_REVIEW.md           76.53
+PHASE2_COMPLETION_SUMMARY.md       7.54
+README.md                         14.58
+
+
+(venv) PS C:\Users\RITAM JASH\K2SHBWI> 
+
+
+
+
+
+
+
+##### Improtant command:-
+venv) PS C:\Users\RITAM JASH\K2SHBWI\tools> cd "C:\Users\RITAM JASH\K2SHBWI\tools"; python cli_click.py create -i smoke_sample.png -o guide.k2sh
+[OK] Created: guide.k2sh
+(venv) PS C:\Users\RITAM JASH\K2SHBWI\tools> python cli_click.py view guide.k2sh 
+[OK] Opened in web viewer
+(venv) PS C:\Users\RITAM JASH\K2SHBWI\tools> python cli_click.py convert guide.k2sh -f html
+ -o guide.html
+>> python cli_click.py convert guide.k2sh -f pdf -o guide.pdf
+>> python cli_click.py convert guide.k2sh -f pptx -o guide.pptx
+[OK] Converted to HTML: guide.html (8360 bytes)
+[OK] Converted to PDF: guide.pdf (12674 bytes)
+[OK] Converted to PPTX: guide.pptx (29792 bytes)
+(venv) PS C:\Users\RITAM JASH\K2SHBWI\tools> cd..
+(venv) PS C:\Users\RITAM JASH\K2SHBWI> Get-ChildItem -Path "C:\Users\RITAM JASH\K2SHBWI\*.md" -File | Select-Object Name, @{N='Size (KB)';E={[math]::Round($_.Length/1KB, 2)}} | Sort-Object "Size (KB)" -Descending | Format-Table -AutoSize
+
+Name                              Size (KB)
+----                              ---------
+FINAL_PROJECT_REVIEW.md               76.53
+COMPLETE_WORKFLOW_COMPARISON.md       45.83
+K2SHBWI_WORKFLOW_VISUAL.md             22.4
+CLICK_CLI_MIGRATION_TODO.md           17.72
+MIGRATION_GUIDE.md                    15.86
+ALL_TASKS_COMPLETE.md                 15.62
+README.md                             14.58
+DIAGNOSTIC_REPORT.md                  14.58
+COMPLETION.md                         14.01
+CLI_GUIDE.md                          13.74
+PRACTICAL_GETTING_STARTED.md          13.34
+TASKS_COMPLETION_CERTIFICATE.md       13.26
+USE_CASES_AND_USER_GUIDE.md           11.98
+PROJECT_STATUS_PHASE2_COMPLETE.md       9.4
+FINAL_SUMMARY_REPORT.md                   9
+PHASE2_COMPLETION_SUMMARY.md           7.54
+
+
+(venv) PS C:\Users\RITAM JASH\K2SHBWI> 

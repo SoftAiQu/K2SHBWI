@@ -1,0 +1,14 @@
+{
+  "title": "Sample K2SHBWI Asset",
+  "author": "Test",
+  "created_date": "2025-10-29T12:02:13.628936",
+  "modified_date": "2025-10-29T12:02:13.630303",
+  "description": "Auto-generated test metadata",
+  "tags": [
+    "test",
+    "sample"
+  ],
+  "custom_fields": {
+    "example": 123
+  }
+}
