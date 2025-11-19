@@ -1,0 +1,69 @@
+{
+  "timestamp": "2025-11-18T12:26:40.156610+00:00",
+  "total_files": 0,
+  "hash_checks": {
+    "passed": 0,
+    "failed": 0,
+    "missing": 10
+  },
+  "consistency_checks": {
+    "passed": 10,
+    "failed": 0
+  },
+  "anomaly_checks": {
+    "found": 0,
+    "details": []
+  },
+  "issues": [],
+  "warnings": [
+    "Missing hash file for benchmark_compression_2025-11-18_00-36-34-313.json",
+    "Missing hash file for benchmark_ssim_2025-11-18_00-38-53-782.json",
+    "Missing hash file for benchmark_ssim_2025-11-18_00-39-17-427.json",
+    "Missing hash file for benchmark_ssim_2025-11-18_00-39-49-550.json",
+    "Missing hash file for example_compression_2025-11-17_23-36-00-166.json",
+    "Missing hash file for cli_commands_2025-11-18_01-24-02-394.json",
+    "Missing hash file for cli_commands_2025-11-18_01-29-14-086.json",
+    "Missing hash file for cli_commands_2025-11-18_01-29-47-395.json",
+    "Missing hash file for test_compression_2025-11-18_01-13-28-198.json",
+    "Missing hash file for test_smart_compression_2025-11-18_01-13-28-226.json"
+  ],
+  "summary": {},
+  "hash_results": {
+    "verified": [],
+    "failed": [],
+    "missing_hash": [
+      "benchmark_compression_2025-11-18_00-36-34-313.json",
+      "benchmark_ssim_2025-11-18_00-38-53-782.json",
+      "benchmark_ssim_2025-11-18_00-39-17-427.json",
+      "benchmark_ssim_2025-11-18_00-39-49-550.json",
+      "example_compression_2025-11-17_23-36-00-166.json",
+      "cli_commands_2025-11-18_01-24-02-394.json",
+      "cli_commands_2025-11-18_01-29-14-086.json",
+      "cli_commands_2025-11-18_01-29-47-395.json",
+      "test_compression_2025-11-18_01-13-28-198.json",
+      "test_smart_compression_2025-11-18_01-13-28-226.json"
+    ]
+  },
+  "consistency_results": {
+    "issues": [],
+    "total_logs_checked": 10
+  },
+  "anomaly_results": {
+    "anomalies_found": 0,
+    "anomalies": [],
+    "compression_stats": {
+      "count": 14,
+      "mean": 39.4,
+      "min": -0.07,
+      "max": 59.15,
+      "median": 52.73
+    },
+    "processing_time_stats": {
+      "count": 14,
+      "mean": 41.02,
+      "min": 0.07,
+      "max": 321.48,
+      "median": 1.54
+    }
+  }
+}

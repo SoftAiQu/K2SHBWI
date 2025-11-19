@@ -1,0 +1,36 @@
+================================================================================
+K2SHBWI TEST LOG REPORT
+================================================================================
+
+Timestamp: 2025-11-18T01:24:02.394461+00:00
+Logger: cli_commands
+Type: cli
+
+System Information:
+  Python: 3.12.1
+  Platform: Windows 11
+
+Summary:
+  Total Metrics: 1
+  Original Bytes: 3,312
+  Compressed Bytes: 3,372
+  Average Compression: -1.81%
+  Total Time: 100.53ms
+  Errors: 0
+
+Detailed Metrics:
+--------------------------------------------------------------------------------
+
+[1] CLI_COMMAND
+    Timestamp: 2025-11-18T01:24:02.504287+00:00
+    Command: create
+    Input: tests/assets/sample.png (3,312 bytes)
+    Output: test_cli_output.k2sh (3,372 bytes)
+    Ratio: -1.81%
+    Algorithm: K2SHBWI_ENCODE
+    Time: 100.53ms
+    Status: SUCCESS
+
+================================================================================
+END OF REPORT
+================================================================================

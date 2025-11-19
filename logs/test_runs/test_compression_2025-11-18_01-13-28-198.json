@@ -1,0 +1,77 @@
+{
+  "timestamp": "2025-11-18T01:13:28.198703+00:00",
+  "logger_name": "test_compression",
+  "log_type": "test",
+  "system_info": {
+    "python_version": "3.12.1",
+    "platform": "Windows 11"
+  },
+  "metrics": [
+    {
+      "type": "test",
+      "timestamp": "2025-11-18T01:13:28.199830+00:00",
+      "test_name": "test_compress_decompress_roundtrip[NONE]",
+      "status": "PASS",
+      "input_bytes": 13000,
+      "output_bytes": 13000,
+      "compression_ratio_percent": 0.0,
+      "compression_type": "NONE",
+      "processing_time_ms": 0.01
+    },
+    {
+      "type": "test",
+      "timestamp": "2025-11-18T01:13:28.202045+00:00",
+      "test_name": "test_compress_decompress_roundtrip[ZLIB]",
+      "status": "PASS",
+      "input_bytes": 13000,
+      "output_bytes": 67,
+      "compression_ratio_percent": 99.48,
+      "compression_type": "ZLIB",
+      "processing_time_ms": 0.15
+    },
+    {
+      "type": "test",
+      "timestamp": "2025-11-18T01:13:28.209286+00:00",
+      "test_name": "test_compress_decompress_roundtrip[BROTLI]",
+      "status": "PASS",
+      "input_bytes": 13000,
+      "output_bytes": 37,
+      "compression_ratio_percent": 99.72,
+      "compression_type": "BROTLI",
+      "processing_time_ms": 6.39
+    },
+    {
+      "type": "test",
+      "timestamp": "2025-11-18T01:13:28.218016+00:00",
+      "test_name": "test_compress_decompress_roundtrip[LZMA]",
+      "status": "PASS",
+      "input_bytes": 13000,
+      "output_bytes": 128,
+      "compression_ratio_percent": 99.02,
+      "compression_type": "LZMA",
+      "processing_time_ms": 5.63
+    },
+    {
+      "type": "test",
+      "timestamp": "2025-11-18T01:13:28.224499+00:00",
+      "test_name": "test_compress_decompress_roundtrip[ZSTD]",
+      "status": "PASS",
+      "input_bytes": 13000,
+      "output_bytes": 31,
+      "compression_ratio_percent": 99.76,
+      "compression_type": "ZSTD",
+      "processing_time_ms": 4.94
+    }
+  ],
+  "summary": {
+    "total_metrics": 5,
+    "total_original_bytes": 65000,
+    "total_compressed_bytes": 13263,
+    "average_compression_ratio_percent": 79.6,
+    "total_processing_time_ms": 17.12,
+    "error_count": 0,
+    "test_module": "test_compression",
+    "compression_types_tested": 5,
+    "benchmark_type": "roundtrip_compression_decompression"
+  }
+}

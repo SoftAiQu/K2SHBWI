@@ -1,0 +1,154 @@
+{
+  "timestamp": "2025-11-18T00:36:34.313071+00:00",
+  "logger_name": "benchmark_compression",
+  "log_type": "benchmark",
+  "system_info": {
+    "python_version": "3.12.1",
+    "platform": "Windows 11"
+  },
+  "metrics": [
+    {
+      "type": "compression",
+      "timestamp": "2025-11-18T00:36:34.319007+00:00",
+      "file_name": "image",
+      "original_bytes": 3312,
+      "compressed_bytes": 1383,
+      "compression_ratio_percent": 58.24,
+      "algorithm": "ZLIB",
+      "processing_time_ms": 1.16,
+      "status": "SUCCESS"
+    },
+    {
+      "type": "compression",
+      "timestamp": "2025-11-18T00:36:34.641383+00:00",
+      "file_name": "image",
+      "original_bytes": 3312,
+      "compressed_bytes": 1353,
+      "compression_ratio_percent": 59.15,
+      "algorithm": "BROTLI",
+      "processing_time_ms": 321.48,
+      "status": "SUCCESS"
+    },
+    {
+      "type": "compression",
+      "timestamp": "2025-11-18T00:36:34.661458+00:00",
+      "file_name": "image",
+      "original_bytes": 3312,
+      "compressed_bytes": 1400,
+      "compression_ratio_percent": 57.73,
+      "algorithm": "LZMA",
+      "processing_time_ms": 19.9,
+      "status": "SUCCESS"
+    },
+    {
+      "type": "compression",
+      "timestamp": "2025-11-18T00:36:34.751572+00:00",
+      "file_name": "image",
+      "original_bytes": 3312,
+      "compressed_bytes": 1367,
+      "compression_ratio_percent": 58.73,
+      "algorithm": "ZSTD",
+      "processing_time_ms": 90.07,
+      "status": "SUCCESS"
+    },
+    {
+      "type": "compression",
+      "timestamp": "2025-11-18T00:36:34.756308+00:00",
+      "file_name": "metadata",
+      "original_bytes": 290,
+      "compressed_bytes": 192,
+      "compression_ratio_percent": 33.79,
+      "algorithm": "ZLIB",
+      "processing_time_ms": 0.15,
+      "status": "SUCCESS"
+    },
+    {
+      "type": "compression",
+      "timestamp": "2025-11-18T00:36:34.758020+00:00",
+      "file_name": "metadata",
+      "original_bytes": 290,
+      "compressed_bytes": 173,
+      "compression_ratio_percent": 40.34,
+      "algorithm": "BROTLI",
+      "processing_time_ms": 1.54,
+      "status": "SUCCESS"
+    },
+    {
+      "type": "compression",
+      "timestamp": "2025-11-18T00:36:34.767359+00:00",
+      "file_name": "metadata",
+      "original_bytes": 290,
+      "compressed_bytes": 252,
+      "compression_ratio_percent": 13.1,
+      "algorithm": "LZMA",
+      "processing_time_ms": 9.34,
+      "status": "SUCCESS"
+    },
+    {
+      "type": "compression",
+      "timestamp": "2025-11-18T00:36:34.767902+00:00",
+      "file_name": "metadata",
+      "original_bytes": 290,
+      "compressed_bytes": 202,
+      "compression_ratio_percent": 30.34,
+      "algorithm": "ZSTD",
+      "processing_time_ms": 0.09,
+      "status": "SUCCESS"
+    },
+    {
+      "type": "compression",
+      "timestamp": "2025-11-18T00:36:34.771075+00:00",
+      "file_name": "hotspots",
+      "original_bytes": 220,
+      "compressed_bytes": 90,
+      "compression_ratio_percent": 59.09,
+      "algorithm": "ZLIB",
+      "processing_time_ms": 0.12,
+      "status": "SUCCESS"
+    },
+    {
+      "type": "compression",
+      "timestamp": "2025-11-18T00:36:34.772328+00:00",
+      "file_name": "hotspots",
+      "original_bytes": 220,
+      "compressed_bytes": 102,
+      "compression_ratio_percent": 53.64,
+      "algorithm": "BROTLI",
+      "processing_time_ms": 1.24,
+      "status": "SUCCESS"
+    },
+    {
+      "type": "compression",
+      "timestamp": "2025-11-18T00:36:34.781933+00:00",
+      "file_name": "hotspots",
+      "original_bytes": 220,
+      "compressed_bytes": 148,
+      "compression_ratio_percent": 32.73,
+      "algorithm": "LZMA",
+      "processing_time_ms": 8.94,
+      "status": "SUCCESS"
+    },
+    {
+      "type": "compression",
+      "timestamp": "2025-11-18T00:36:34.781933+00:00",
+      "file_name": "hotspots",
+      "original_bytes": 220,
+      "compressed_bytes": 104,
+      "compression_ratio_percent": 52.73,
+      "algorithm": "ZSTD",
+      "processing_time_ms": 0.07,
+      "status": "SUCCESS"
+    }
+  ],
+  "summary": {
+    "total_metrics": 12,
+    "total_original_bytes": 15288,
+    "total_compressed_bytes": 6766,
+    "average_compression_ratio_percent": 55.74,
+    "total_processing_time_ms": 454.1,
+    "error_count": 0,
+    "asset_count": 3,
+    "algorithm_count": 4,
+    "benchmark_type": "compression_ratio_and_speed"
+  }
+}

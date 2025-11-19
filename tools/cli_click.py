@@ -2,6 +2,13 @@
 """
 K2SHBWI Click-based CLI - Teacher's improved version
 Provides 8 main commands with better UX and structured output
+
+Now with real-time logging:
+  - Metrics logged to /logs/cli_runs/
+  - JSON, TXT, and hash files generated
+  - Command execution times tracked
+  - File sizes and compression ratios recorded
+  - Add --log flag to any command to enable detailed logging
 """
 
 import sys
@@ -10,6 +17,7 @@ from pathlib import Path
 from typing import Optional, Dict, Any
 import json
 import io
+import time
 
 import click
 from PIL import Image
@@ -25,17 +33,27 @@ from src.converters.pdf_converter import PDFConverter
 from src.converters.pptx_converter import PPTXConverter
 from src.viewers.web_viewer import WebViewer
 from src.viewers.desktop_viewer import DesktopViewer
+from src.utils.test_logger import TestLogger
 
 
 # ============================================================================
 # CLI GROUP AND HELPER FUNCTIONS
 # ============================================================================
 
+# Global logger instance
+_logger: Optional[TestLogger] = None
+_enable_logging = False
+
+
 @click.group()
 @click.version_option(version='1.0.0', prog_name='k2shbwi')
-def cli():
+@click.option('--log', is_flag=True, help='Enable detailed metrics logging')
+def cli(log):
     """K2SHBWI CLI - Advanced image metadata and hotspot management tool."""
-    pass
+    global _logger, _enable_logging
+    _enable_logging = log
+    if _enable_logging:
+        _logger = TestLogger(logger_name="cli_commands", log_type="cli")
 
 
 def print_ok(message: str):
@@ -68,6 +86,10 @@ def print_info(message: str):
 @click.option('-v', '--verbose', is_flag=True, help='Verbose output')
 def create(input, output, title, description, metadata, verbose):
     """Create a K2SHBWI file from an image with optional metadata."""
+    global _logger, _enable_logging
+    command_start = time.perf_counter()
+    input_size = os.path.getsize(input)
+    
     try:
         if verbose:
             print_info(f"Creating K2SHBWI from: {input}")
@@ -92,12 +114,41 @@ def create(input, output, title, description, metadata, verbose):
         encoder.set_image(input)
         encoder.encode(output)
         
+        output_size = os.path.getsize(output)
+        elapsed_ms = (time.perf_counter() - command_start) * 1000
+        
         if verbose:
-            file_size = os.path.getsize(output)
-            print_info(f"Output file size: {file_size} bytes")
+            print_info(f"Output file size: {output_size} bytes")
+        
+        # Log metrics if logging enabled
+        if _enable_logging and _logger:
+            compression_ratio = 100.0 - (output_size / input_size * 100) if input_size > 0 else 0
+            _logger.log_cli_command(
+                command="create",
+                input_file=input,
+                output_file=output,
+                input_bytes=input_size,
+                output_bytes=output_size,
+                algorithm_used="K2SHBWI_ENCODE",
+                status="SUCCESS",
+                processing_time_ms=elapsed_ms
+            )
         
         print_ok(f"Created: {output}")
     except Exception as e:
+        elapsed_ms = (time.perf_counter() - command_start) * 1000
+        if _enable_logging and _logger:
+            _logger.log_cli_command(
+                command="create",
+                input_file=input,
+                output_file=output,
+                input_bytes=input_size,
+                output_bytes=0,
+                algorithm_used="K2SHBWI_ENCODE",
+                status="FAILED",
+                processing_time_ms=elapsed_ms,
+                error_msg=str(e)
+            )
         print_error(str(e))
         sys.exit(1)
 
@@ -243,6 +294,10 @@ def batch(input_dir, output_dir, verbose):
 @click.option('-v', '--verbose', is_flag=True, help='Verbose output')
 def encode(input, output, verbose):
     """Low-level encode command (alias for create)."""
+    global _logger, _enable_logging
+    command_start = time.perf_counter()
+    input_size = os.path.getsize(input)
+    
     try:
         if verbose:
             print_info(f"Encoding: {input}")
@@ -251,13 +306,43 @@ def encode(input, output, verbose):
         encoder.set_image(input)
         encoder.encode(output)
         
-        encoder.set_image(input)
-        encoder.encode(output)
+        output_size = os.path.getsize(output)
+        elapsed_ms = (time.perf_counter() - command_start) * 1000
+        
+        # Log metrics if logging enabled
+        if _enable_logging and _logger:
+            compression_ratio = 100.0 - (output_size / input_size * 100) if input_size > 0 else 0
+            _logger.log_cli_command(
+                command="encode",
+                input_file=input,
+                output_file=output,
+                input_bytes=input_size,
+                output_bytes=output_size,
+                algorithm_used="K2SHBWI_ENCODE",
+                status="SUCCESS",
+                processing_time_ms=elapsed_ms
+            )
         
         print_ok(f"Encoded: {output}")
     except Exception as e:
+        elapsed_ms = (time.perf_counter() - command_start) * 1000
+        if _enable_logging and _logger:
+            _logger.log_cli_command(
+                command="encode",
+                input_file=input,
+                output_file=output,
+                input_bytes=input_size,
+                output_bytes=0,
+                algorithm_used="K2SHBWI_ENCODE",
+                status="FAILED",
+                processing_time_ms=elapsed_ms,
+                error_msg=str(e)
+            )
         print_error(str(e))
         sys.exit(1)
+
+
+# ============================================================================
 # PHASE 3: COMMAND 6 - DECODE
 # ============================================================================
 
@@ -268,6 +353,10 @@ def encode(input, output, verbose):
 @click.option('-v', '--verbose', is_flag=True, help='Verbose output')
 def decode(file, output, verbose):
     """Extract image from K2SHBWI file."""
+    global _logger, _enable_logging
+    command_start = time.perf_counter()
+    input_size = os.path.getsize(file)
+    
     try:
         if verbose:
             print_info(f"Decoding: {file}")
@@ -285,12 +374,41 @@ def decode(file, output, verbose):
         image = Image.open(io.BytesIO(image_data))
         image.save(output)
         
+        output_size = os.path.getsize(output)
+        elapsed_ms = (time.perf_counter() - command_start) * 1000
+        
         if verbose:
             print_info(f"Image size: {image.size}")
             print_info(f"Image format: {image.format}")
         
+        # Log metrics if logging enabled
+        if _enable_logging and _logger:
+            _logger.log_cli_command(
+                command="decode",
+                input_file=file,
+                output_file=output,
+                input_bytes=input_size,
+                output_bytes=output_size,
+                algorithm_used="K2SHBWI_DECODE",
+                status="SUCCESS",
+                processing_time_ms=elapsed_ms
+            )
+        
         print_ok(f"Decoded: {output}")
     except Exception as e:
+        elapsed_ms = (time.perf_counter() - command_start) * 1000
+        if _enable_logging and _logger:
+            _logger.log_cli_command(
+                command="decode",
+                input_file=file,
+                output_file=output,
+                input_bytes=input_size,
+                output_bytes=0,
+                algorithm_used="K2SHBWI_DECODE",
+                status="FAILED",
+                processing_time_ms=elapsed_ms,
+                error_msg=str(e)
+            )
         print_error(str(e))
         sys.exit(1)
 
@@ -308,6 +426,10 @@ def decode(file, output, verbose):
 @click.option('-v', '--verbose', is_flag=True, help='Verbose output')
 def convert(file, format, output, verbose):
     """Convert K2SHBWI file to another format (HTML, PDF, PPTX)."""
+    global _logger, _enable_logging
+    command_start = time.perf_counter()
+    input_size = os.path.getsize(file)
+    
     try:
         if verbose:
             print_info(f"Converting to {format.upper()}: {file}")
@@ -326,14 +448,42 @@ def convert(file, format, output, verbose):
         # Convert
         converter.convert(file, output)
         
+        output_size = os.path.getsize(output)
+        elapsed_ms = (time.perf_counter() - command_start) * 1000
+        
         # Display stats
         stats = converter.get_stats()
         if verbose:
             print_info(f"Conversion stats: {stats}")
         
-        file_size = os.path.getsize(output)
-        print_ok(f"Converted to {format.upper()}: {output} ({file_size} bytes)")
+        # Log metrics if logging enabled
+        if _enable_logging and _logger:
+            _logger.log_cli_command(
+                command="convert",
+                input_file=file,
+                output_file=output,
+                input_bytes=input_size,
+                output_bytes=output_size,
+                algorithm_used=f"CONVERTER_{format.upper()}",
+                status="SUCCESS",
+                processing_time_ms=elapsed_ms
+            )
+        
+        print_ok(f"Converted to {format.upper()}: {output} ({output_size} bytes)")
     except Exception as e:
+        elapsed_ms = (time.perf_counter() - command_start) * 1000
+        if _enable_logging and _logger:
+            _logger.log_cli_command(
+                command="convert",
+                input_file=file,
+                output_file=output,
+                input_bytes=input_size,
+                output_bytes=0,
+                algorithm_used=f"CONVERTER_{format.upper()}",
+                status="FAILED",
+                processing_time_ms=elapsed_ms,
+                error_msg=str(e)
+            )
         print_error(str(e))
         sys.exit(1)
 
@@ -373,5 +523,21 @@ def view(file, type, verbose):
 # MAIN
 # ============================================================================
 
+def save_cli_logs():
+    """Save CLI logs after command execution"""
+    global _logger, _enable_logging
+    if _enable_logging and _logger:
+        _logger.add_summary({
+            "cli_tool": "k2shbwi",
+            "version": "1.0.0",
+            "logging_enabled": True
+        })
+        log_paths = _logger.save_log()
+        click.echo(f"\n[Logging] Metrics saved to {log_paths['json']}")
+
+
 if __name__ == '__main__':
-    cli()
+    try:
+        cli()
+    finally:
+        save_cli_logs()

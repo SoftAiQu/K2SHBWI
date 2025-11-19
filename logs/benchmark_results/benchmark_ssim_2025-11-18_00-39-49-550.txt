@@ -1,0 +1,218 @@
+================================================================================
+K2SHBWI TEST LOG REPORT
+================================================================================
+
+Timestamp: 2025-11-18T00:39:49.550770+00:00
+Logger: benchmark_ssim
+Type: benchmark
+
+System Information:
+  Python: 3.12.1
+  Platform: Windows 11
+
+Summary:
+  Total Metrics: 24
+  Original Bytes: 0
+  Compressed Bytes: 0
+  Average Compression: 0.00%
+  Total Time: 1385.67ms
+  Errors: 0
+
+Detailed Metrics:
+--------------------------------------------------------------------------------
+
+[1] SSIM
+    Timestamp: 2025-11-18T00:39:51.196103+00:00
+    Size: 128x128
+    SSIM Score: 1.000000
+    Type: identical
+    Method: skimage
+    Time: 309.26ms
+
+[2] SSIM
+    Timestamp: 2025-11-18T00:39:51.196103+00:00
+    Size: 128x128
+    SSIM Score: 0.013160
+    Type: different
+    Method: skimage
+    Time: 3.09ms
+
+[3] SSIM
+    Timestamp: 2025-11-18T00:39:51.201120+00:00
+    Size: 128x128
+    SSIM Score: 1.000000
+    Type: identical
+    Method: numpy
+    Time: 0.63ms
+
+[4] SSIM
+    Timestamp: 2025-11-18T00:39:51.201120+00:00
+    Size: 128x128
+    SSIM Score: 0.012544
+    Type: different
+    Method: numpy
+    Time: 0.28ms
+
+[5] SSIM
+    Timestamp: 2025-11-18T00:39:51.304388+00:00
+    Size: 128x128
+    SSIM Score: 1.000000
+    Type: identical
+    Method: python
+    Time: 10.05ms
+
+[6] SSIM
+    Timestamp: 2025-11-18T00:39:51.304723+00:00
+    Size: 128x128
+    SSIM Score: 0.012544
+    Type: different
+    Method: python
+    Time: 10.55ms
+
+[7] SSIM
+    Timestamp: 2025-11-18T00:39:51.688388+00:00
+    Size: 256x256
+    SSIM Score: 1.000000
+    Type: identical
+    Method: skimage
+    Time: 11.31ms
+
+[8] SSIM
+    Timestamp: 2025-11-18T00:39:51.688388+00:00
+    Size: 256x256
+    SSIM Score: 0.017828
+    Type: different
+    Method: skimage
+    Time: 11.55ms
+
+[9] SSIM
+    Timestamp: 2025-11-18T00:39:51.696112+00:00
+    Size: 256x256
+    SSIM Score: 1.000000
+    Type: identical
+    Method: numpy
+    Time: 0.82ms
+
+[10] SSIM
+    Timestamp: 2025-11-18T00:39:51.696112+00:00
+    Size: 256x256
+    SSIM Score: 0.018691
+    Type: different
+    Method: numpy
+    Time: 0.70ms
+
+[11] SSIM
+    Timestamp: 2025-11-18T00:39:52.103874+00:00
+    Size: 256x256
+    SSIM Score: 1.000000
+    Type: identical
+    Method: python
+    Time: 44.68ms
+
+[12] SSIM
+    Timestamp: 2025-11-18T00:39:52.103874+00:00
+    Size: 256x256
+    SSIM Score: 0.018691
+    Type: different
+    Method: python
+    Time: 36.81ms
+
+[13] SSIM
+    Timestamp: 2025-11-18T00:39:53.787619+00:00
+    Size: 512x512
+    SSIM Score: 1.000000
+    Type: identical
+    Method: skimage
+    Time: 75.99ms
+
+[14] SSIM
+    Timestamp: 2025-11-18T00:39:53.787619+00:00
+    Size: 512x512
+    SSIM Score: 0.013682
+    Type: different
+    Method: skimage
+    Time: 61.91ms
+
+[15] SSIM
+    Timestamp: 2025-11-18T00:39:53.845937+00:00
+    Size: 512x512
+    SSIM Score: 1.000000
+    Type: identical
+    Method: numpy
+    Time: 5.60ms
+
+[16] SSIM
+    Timestamp: 2025-11-18T00:39:53.845937+00:00
+    Size: 512x512
+    SSIM Score: 0.013386
+    Type: different
+    Method: numpy
+    Time: 5.92ms
+
+[17] SSIM
+    Timestamp: 2025-11-18T00:39:54.359126+00:00
+    Size: 512x512
+    SSIM Score: 1.000000
+    Type: identical
+    Method: python
+    Time: 51.12ms
+
+[18] SSIM
+    Timestamp: 2025-11-18T00:39:54.359126+00:00
+    Size: 512x512
+    SSIM Score: 0.056855
+    Type: different
+    Method: python
+    Time: 51.36ms
+
+[19] SSIM
+    Timestamp: 2025-11-18T00:40:00.393408+00:00
+    Size: 1024x1024
+    SSIM Score: 1.000000
+    Type: identical
+    Method: skimage
+    Time: 227.44ms
+
+[20] SSIM
+    Timestamp: 2025-11-18T00:40:00.393408+00:00
+    Size: 1024x1024
+    SSIM Score: 0.013440
+    Type: different
+    Method: skimage
+    Time: 294.41ms
+
+[21] SSIM
+    Timestamp: 2025-11-18T00:40:00.686094+00:00
+    Size: 1024x1024
+    SSIM Score: 1.000000
+    Type: identical
+    Method: numpy
+    Time: 30.24ms
+
+[22] SSIM
+    Timestamp: 2025-11-18T00:40:00.686094+00:00
+    Size: 1024x1024
+    SSIM Score: 0.013074
+    Type: different
+    Method: numpy
+    Time: 28.19ms
+
+[23] SSIM
+    Timestamp: 2025-11-18T00:40:01.255049+00:00
+    Size: 1024x1024
+    SSIM Score: 1.000000
+    Type: identical
+    Method: python
+    Time: 58.41ms
+
+[24] SSIM
+    Timestamp: 2025-11-18T00:40:01.255049+00:00
+    Size: 1024x1024
+    SSIM Score: 0.189280
+    Type: different
+    Method: python
+    Time: 55.35ms
+
+================================================================================
+END OF REPORT
+================================================================================

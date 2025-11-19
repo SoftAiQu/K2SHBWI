@@ -1,0 +1,47 @@
+{
+  "timestamp": "2025-11-18T01:13:28.226145+00:00",
+  "logger_name": "test_smart_compression",
+  "log_type": "test",
+  "system_info": {
+    "python_version": "3.12.1",
+    "platform": "Windows 11"
+  },
+  "metrics": [
+    {
+      "type": "test",
+      "timestamp": "2025-11-18T01:13:28.227787+00:00",
+      "test_name": "test_adaptive_compress_roundtrip_text",
+      "status": "PASS",
+      "input_bytes": 8800,
+      "output_bytes": 63,
+      "compression_ratio_percent": 99.28,
+      "compression_type": "ZSTD",
+      "processing_time_ms": 0.79
+    },
+    {
+      "type": "test",
+      "timestamp": "2025-11-18T01:13:28.229988+00:00",
+      "test_name": "test_adaptive_compress_roundtrip_binary",
+      "status": "PASS",
+      "input_bytes": 8000,
+      "output_bytes": 33,
+      "compression_ratio_percent": 99.59,
+      "compression_type": "ZLIB",
+      "processing_time_ms": 0.38
+    }
+  ],
+  "summary": {
+    "total_metrics": 2,
+    "total_original_bytes": 16800,
+    "total_compressed_bytes": 96,
+    "average_compression_ratio_percent": 99.43,
+    "total_processing_time_ms": 1.17,
+    "error_count": 0,
+    "test_module": "test_smart_compression",
+    "adaptive_compression_data_types": [
+      "text",
+      "binary"
+    ],
+    "benchmark_type": "adaptive_compression"
+  }
+}

@@ -1,0 +1,146 @@
+================================================================================
+K2SHBWI TEST LOG REPORT
+================================================================================
+
+Timestamp: 2025-11-18T00:36:34.313071+00:00
+Logger: benchmark_compression
+Type: benchmark
+
+System Information:
+  Python: 3.12.1
+  Platform: Windows 11
+
+Summary:
+  Total Metrics: 12
+  Original Bytes: 15,288
+  Compressed Bytes: 6,766
+  Average Compression: 55.74%
+  Total Time: 454.10ms
+  Errors: 0
+
+Detailed Metrics:
+--------------------------------------------------------------------------------
+
+[1] COMPRESSION
+    Timestamp: 2025-11-18T00:36:34.319007+00:00
+    File: image
+    Original: 3,312 bytes
+    Compressed: 1,383 bytes
+    Ratio: 58.24%
+    Algorithm: ZLIB
+    Time: 1.16ms
+    Status: SUCCESS
+
+[2] COMPRESSION
+    Timestamp: 2025-11-18T00:36:34.641383+00:00
+    File: image
+    Original: 3,312 bytes
+    Compressed: 1,353 bytes
+    Ratio: 59.15%
+    Algorithm: BROTLI
+    Time: 321.48ms
+    Status: SUCCESS
+
+[3] COMPRESSION
+    Timestamp: 2025-11-18T00:36:34.661458+00:00
+    File: image
+    Original: 3,312 bytes
+    Compressed: 1,400 bytes
+    Ratio: 57.73%
+    Algorithm: LZMA
+    Time: 19.90ms
+    Status: SUCCESS
+
+[4] COMPRESSION
+    Timestamp: 2025-11-18T00:36:34.751572+00:00
+    File: image
+    Original: 3,312 bytes
+    Compressed: 1,367 bytes
+    Ratio: 58.73%
+    Algorithm: ZSTD
+    Time: 90.07ms
+    Status: SUCCESS
+
+[5] COMPRESSION
+    Timestamp: 2025-11-18T00:36:34.756308+00:00
+    File: metadata
+    Original: 290 bytes
+    Compressed: 192 bytes
+    Ratio: 33.79%
+    Algorithm: ZLIB
+    Time: 0.15ms
+    Status: SUCCESS
+
+[6] COMPRESSION
+    Timestamp: 2025-11-18T00:36:34.758020+00:00
+    File: metadata
+    Original: 290 bytes
+    Compressed: 173 bytes
+    Ratio: 40.34%
+    Algorithm: BROTLI
+    Time: 1.54ms
+    Status: SUCCESS
+
+[7] COMPRESSION
+    Timestamp: 2025-11-18T00:36:34.767359+00:00
+    File: metadata
+    Original: 290 bytes
+    Compressed: 252 bytes
+    Ratio: 13.10%
+    Algorithm: LZMA
+    Time: 9.34ms
+    Status: SUCCESS
+
+[8] COMPRESSION
+    Timestamp: 2025-11-18T00:36:34.767902+00:00
+    File: metadata
+    Original: 290 bytes
+    Compressed: 202 bytes
+    Ratio: 30.34%
+    Algorithm: ZSTD
+    Time: 0.09ms
+    Status: SUCCESS
+
+[9] COMPRESSION
+    Timestamp: 2025-11-18T00:36:34.771075+00:00
+    File: hotspots
+    Original: 220 bytes
+    Compressed: 90 bytes
+    Ratio: 59.09%
+    Algorithm: ZLIB
+    Time: 0.12ms
+    Status: SUCCESS
+
+[10] COMPRESSION
+    Timestamp: 2025-11-18T00:36:34.772328+00:00
+    File: hotspots
+    Original: 220 bytes
+    Compressed: 102 bytes
+    Ratio: 53.64%
+    Algorithm: BROTLI
+    Time: 1.24ms
+    Status: SUCCESS
+
+[11] COMPRESSION
+    Timestamp: 2025-11-18T00:36:34.781933+00:00
+    File: hotspots
+    Original: 220 bytes
+    Compressed: 148 bytes
+    Ratio: 32.73%
+    Algorithm: LZMA
+    Time: 8.94ms
+    Status: SUCCESS
+
+[12] COMPRESSION
+    Timestamp: 2025-11-18T00:36:34.781933+00:00
+    File: hotspots
+    Original: 220 bytes
+    Compressed: 104 bytes
+    Ratio: 52.73%
+    Algorithm: ZSTD
+    Time: 0.07ms
+    Status: SUCCESS
+
+================================================================================
+END OF REPORT
+================================================================================

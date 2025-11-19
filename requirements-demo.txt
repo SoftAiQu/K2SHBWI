@@ -1,0 +1,46 @@
+# ===================================================================
+# K2SHBWI - Demo Platform Requirements
+# Optional dependencies for the demo visualization platform
+# Install with: pip install -r requirements-demo.txt
+# ===================================================================
+
+# Web Framework
+Flask>=3.0.0
+Flask-CORS>=4.0.0
+
+# Image Processing (Additional)
+scipy>=1.11.4
+
+# Data Analysis
+pandas>=2.1.3
+scikit-image>=0.22.0
+
+# Advanced Visualization (for heatmaps and charts)
+matplotlib>=3.8.2
+
+# Production Server (Optional)
+gunicorn>=21.2.0
+python-dotenv>=1.0.0
+
+# Testing (Optional)
+pytest-flask>=1.3.0
+
+# Development Tools (Optional)
+black>=23.12.0
+flake8>=6.1.0
+
+# ===================================================================
+# NOTES FOR INSTALLATION:
+# ===================================================================
+# 1. First install core requirements:
+#    pip install -r requirements.txt
+#
+# 2. Then install demo requirements:
+#    pip install -r requirements-demo.txt
+#
+# 3. Or install all at once:
+#    pip install -r requirements.txt -r requirements-demo.txt
+#
+# These are OPTIONAL and only needed if you're running the demo
+# platform. Core K2SHBWI functionality works without these packages.
+# ===================================================================

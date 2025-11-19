@@ -1,0 +1,76 @@
+================================================================================
+K2SHBWI TEST LOG REPORT
+================================================================================
+
+Timestamp: 2025-11-18T01:13:28.198703+00:00
+Logger: test_compression
+Type: test
+
+System Information:
+  Python: 3.12.1
+  Platform: Windows 11
+
+Summary:
+  Total Metrics: 5
+  Original Bytes: 65,000
+  Compressed Bytes: 13,263
+  Average Compression: 79.60%
+  Total Time: 17.12ms
+  Errors: 0
+
+Detailed Metrics:
+--------------------------------------------------------------------------------
+
+[1] TEST
+    Timestamp: 2025-11-18T01:13:28.199830+00:00
+    Test: test_compress_decompress_roundtrip[NONE]
+    Input: 13,000 bytes
+    Output: 13,000 bytes
+    Ratio: 0.00%
+    Type: NONE
+    Time: 0.01ms
+    Status: PASS
+
+[2] TEST
+    Timestamp: 2025-11-18T01:13:28.202045+00:00
+    Test: test_compress_decompress_roundtrip[ZLIB]
+    Input: 13,000 bytes
+    Output: 67 bytes
+    Ratio: 99.48%
+    Type: ZLIB
+    Time: 0.15ms
+    Status: PASS
+
+[3] TEST
+    Timestamp: 2025-11-18T01:13:28.209286+00:00
+    Test: test_compress_decompress_roundtrip[BROTLI]
+    Input: 13,000 bytes
+    Output: 37 bytes
+    Ratio: 99.72%
+    Type: BROTLI
+    Time: 6.39ms
+    Status: PASS
+
+[4] TEST
+    Timestamp: 2025-11-18T01:13:28.218016+00:00
+    Test: test_compress_decompress_roundtrip[LZMA]
+    Input: 13,000 bytes
+    Output: 128 bytes
+    Ratio: 99.02%
+    Type: LZMA
+    Time: 5.63ms
+    Status: PASS
+
+[5] TEST
+    Timestamp: 2025-11-18T01:13:28.224499+00:00
+    Test: test_compress_decompress_roundtrip[ZSTD]
+    Input: 13,000 bytes
+    Output: 31 bytes
+    Ratio: 99.76%
+    Type: ZSTD
+    Time: 4.94ms
+    Status: PASS
+
+================================================================================
+END OF REPORT
+================================================================================

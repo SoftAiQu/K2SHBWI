@@ -1,0 +1,330 @@
+{% extends "base.html" %}
+
+{% block title %}K2SHBWI Dashboard - Interactive Compression Demo{% endblock %}
+
+{% block content %}
+<div class="container-fluid py-4">
+    <!-- Page Header -->
+    <div class="row mb-4">
+        <div class="col">
+            <h1 class="h2">
+                <i class="fas fa-tachometer-alt"></i> Demo Dashboard
+            </h1>
+            <p class="text-muted">Upload images, analyze compression, view metrics</p>
+        </div>
+    </div>
+
+    <!-- Main Dashboard Grid -->
+    <div class="row g-4">
+        <!-- Upload Section -->
+        <div class="col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0"><i class="fas fa-upload"></i> Upload Image</h5>
+                </div>
+                <div class="card-body">
+                    <div class="upload-area" id="uploadArea">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Drag and drop image here or click to browse</p>
+                        <input type="file" id="fileInput" accept="image/*" class="d-none">
+                    </div>
+                    <div id="uploadStatus" class="mt-3 d-none">
+                        <div class="progress mb-2">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" 
+                                 id="progressBar" role="progressbar" style="width: 0%"></div>
+                        </div>
+                        <p id="statusText" class="text-muted"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Metrics Overview -->
+        <div class="col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0"><i class="fas fa-chart-bar"></i> Compression Metrics</h5>
+                </div>
+                <div class="card-body">
+                    <div class="metrics-grid">
+                        <div class="metric">
+                            <span class="label">Compression Ratio</span>
+                            <span class="value" id="compressionRatio">-</span>
+                        </div>
+                        <div class="metric">
+                            <span class="label">Quality Preserved</span>
+                            <span class="value" id="qualityPreserved">-</span>
+                        </div>
+                        <div class="metric">
+                            <span class="label">Processing Time</span>
+                            <span class="value" id="processingTime">-</span>
+                        </div>
+                        <div class="metric">
+                            <span class="label">PSNR Score</span>
+                            <span class="value" id="psnrScore">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Section (Hidden until image processed) -->
+    <div id="resultsSection" class="d-none mt-4">
+        <div class="row g-4">
+            <!-- Before/After Comparison -->
+            <div class="col-lg-12">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-info text-white">
+                        <h5 class="mb-0"><i class="fas fa-images"></i> Before & After Comparison</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="comparison-container">
+                            <div class="comparison-slider" id="resultSlider">
+                                <div class="comparison-original">
+                                    <img id="originalImg" src="" alt="Original">
+                                    <span class="label" id="originalLabel">Original</span>
+                                </div>
+                                <div class="comparison-compressed">
+                                    <img id="compressedImg" src="" alt="Compressed">
+                                    <span class="label" id="compressedLabel">Compressed</span>
+                                </div>
+                                <div class="comparison-handle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- File Size Comparison -->
+            <div class="col-lg-6">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-warning">
+                        <h5 class="mb-0"><i class="fas fa-hdd"></i> File Size Comparison</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="fileSizeChart" style="height: 300px;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detailed Results -->
+            <div class="col-lg-6">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-secondary text-white">
+                        <h5 class="mb-0"><i class="fas fa-list-check"></i> Detailed Results</h5>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-sm">
+                            <tbody>
+                                <tr>
+                                    <td><strong>Original Size</strong></td>
+                                    <td id="resultOriginalSize">-</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Compressed Size</strong></td>
+                                    <td id="resultCompressedSize">-</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Reduction</strong></td>
+                                    <td id="resultReduction">-</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>SSIM Score</strong></td>
+                                    <td id="resultSSIM">-</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>PSNR Value</strong></td>
+                                    <td id="resultPSNR">-</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Processing Time</strong></td>
+                                    <td id="resultTime">-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button class="btn btn-success w-100" id="downloadBtn">
+                            <i class="fas fa-download"></i> Download Compressed
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Research Stats -->
+    <div class="row g-4 mt-4">
+        <div class="col-md-3">
+            <div class="stat-card-lg">
+                <h3 class="text-info">1000+</h3>
+                <p>Images Tested</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card-lg">
+                <h3 class="text-success">87.3%</h3>
+                <p>Avg Compression</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card-lg">
+                <h3 class="text-warning">96.8%</h3>
+                <p>Avg Quality</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card-lg">
+                <h3 class="text-danger">2.1 MB/s</h3>
+                <p>Speed</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+let currentResult = null;
+
+document.addEventListener('DOMContentLoaded', function() {
+    setupUploadArea();
+    setupComparison();
+});
+
+function setupUploadArea() {
+    const uploadArea = document.getElementById('uploadArea');
+    const fileInput = document.getElementById('fileInput');
+    
+    uploadArea.addEventListener('click', () => fileInput.click());
+    
+    uploadArea.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        uploadArea.classList.add('dragover');
+    });
+    
+    uploadArea.addEventListener('dragleave', () => {
+        uploadArea.classList.remove('dragover');
+    });
+    
+    uploadArea.addEventListener('drop', (e) => {
+        e.preventDefault();
+        uploadArea.classList.remove('dragover');
+        handleFiles(e.dataTransfer.files);
+    });
+    
+    fileInput.addEventListener('change', (e) => handleFiles(e.target.files));
+}
+
+function handleFiles(files) {
+    if (files.length === 0) return;
+    
+    const file = files[0];
+    const formData = new FormData();
+    formData.append('file', file);
+    
+    // Show upload status
+    document.getElementById('uploadStatus').classList.remove('d-none');
+    document.getElementById('statusText').textContent = 'Processing...';
+    
+    fetch('/api/upload-image', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            currentResult = data;
+            displayResults(data);
+            document.getElementById('statusText').textContent = 'Processing complete!';
+        } else {
+            alert('Error: ' + data.error);
+        }
+    })
+    .catch(error => {
+        alert('Error uploading file: ' + error);
+    });
+}
+
+function displayResults(data) {
+    // Update metrics
+    document.getElementById('compressionRatio').textContent = 
+        data.metrics.compression_ratio.toFixed(1) + '%';
+    document.getElementById('qualityPreserved').textContent = 
+        data.metrics.quality_preserved.toFixed(1) + '%';
+    document.getElementById('processingTime').textContent = 
+        data.metrics.processing_time.toFixed(2) + 's';
+    document.getElementById('psnrScore').textContent = 
+        data.metrics.psnr.toFixed(2);
+    
+    // Update results table
+    document.getElementById('resultOriginalSize').textContent = 
+        data.original.size_mb + ' MB';
+    document.getElementById('resultCompressedSize').textContent = 
+        data.compressed.size_mb + ' MB';
+    document.getElementById('resultReduction').textContent = 
+        data.metrics.compression_ratio.toFixed(1) + '%';
+    document.getElementById('resultSSIM').textContent = 
+        data.metrics.ssim.toFixed(4);
+    document.getElementById('resultPSNR').textContent = 
+        data.metrics.psnr.toFixed(2) + ' dB';
+    document.getElementById('resultTime').textContent = 
+        data.metrics.processing_time.toFixed(3) + ' seconds';
+    
+    // Show results section
+    document.getElementById('resultsSection').classList.remove('d-none');
+    
+    // Update comparison images
+    document.getElementById('originalLabel').textContent = 
+        'Original: ' + data.original.size_mb + ' MB';
+    document.getElementById('compressedLabel').textContent = 
+        'Compressed: ' + data.compressed.size_mb + ' MB';
+    
+    // Update download button
+    document.getElementById('downloadBtn').onclick = () => {
+        window.location.href = '/api/download/' + data.compressed.filename;
+    };
+    
+    // Create file size chart
+    createFileSizeChart(data);
+}
+
+function createFileSizeChart(data) {
+    const trace = {
+        x: ['Original', 'Compressed'],
+        y: [data.original.size_mb, data.compressed.size_mb],
+        type: 'bar',
+        marker: { color: ['#17a2b8', '#28a745'] }
+    };
+    
+    const layout = {
+        title: 'File Size Comparison',
+        yaxis: { title: 'Size (MB)' },
+        margin: { b: 50 }
+    };
+    
+    Plotly.newPlot('fileSizeChart', [trace], layout, {responsive: true});
+}
+
+function setupComparison() {
+    const resultSlider = document.getElementById('resultSlider');
+    let isActive = false;
+    
+    resultSlider.addEventListener('mousedown', () => isActive = true);
+    document.addEventListener('mouseup', () => isActive = false);
+    document.addEventListener('mousemove', (e) => {
+        if (!isActive || !resultSlider) return;
+        
+        const rect = resultSlider.getBoundingClientRect();
+        let x = e.clientX - rect.left;
+        
+        if (x < 0) x = 0;
+        if (x > rect.width) x = rect.width;
+        
+        const percent = (x / rect.width) * 100;
+        resultSlider.querySelector('.comparison-compressed').style.width = percent + '%';
+        resultSlider.querySelector('.comparison-handle').style.left = percent + '%';
+    });
+}
+</script>
+{% endblock %}

@@ -1,0 +1,46 @@
+================================================================================
+K2SHBWI TEST LOG REPORT
+================================================================================
+
+Timestamp: 2025-11-18T01:13:28.226145+00:00
+Logger: test_smart_compression
+Type: test
+
+System Information:
+  Python: 3.12.1
+  Platform: Windows 11
+
+Summary:
+  Total Metrics: 2
+  Original Bytes: 16,800
+  Compressed Bytes: 96
+  Average Compression: 99.43%
+  Total Time: 1.17ms
+  Errors: 0
+
+Detailed Metrics:
+--------------------------------------------------------------------------------
+
+[1] TEST
+    Timestamp: 2025-11-18T01:13:28.227787+00:00
+    Test: test_adaptive_compress_roundtrip_text
+    Input: 8,800 bytes
+    Output: 63 bytes
+    Ratio: 99.28%
+    Type: ZSTD
+    Time: 0.79ms
+    Status: PASS
+
+[2] TEST
+    Timestamp: 2025-11-18T01:13:28.229988+00:00
+    Test: test_adaptive_compress_roundtrip_binary
+    Input: 8,000 bytes
+    Output: 33 bytes
+    Ratio: 99.59%
+    Type: ZLIB
+    Time: 0.38ms
+    Status: PASS
+
+================================================================================
+END OF REPORT
+================================================================================

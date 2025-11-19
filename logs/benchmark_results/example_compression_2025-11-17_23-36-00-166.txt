@@ -1,0 +1,46 @@
+================================================================================
+K2SHBWI TEST LOG REPORT
+================================================================================
+
+Timestamp: 2025-11-17T23:36:00.166847+00:00
+Logger: example_compression
+Type: benchmark
+
+System Information:
+  Python: 3.12.1
+  Platform: Windows 11
+
+Summary:
+  Total Metrics: 2
+  Original Bytes: 2,764
+  Compressed Bytes: 2,736
+  Average Compression: 1.01%
+  Total Time: 120.19ms
+  Errors: 0
+
+Detailed Metrics:
+--------------------------------------------------------------------------------
+
+[1] COMPRESSION
+    Timestamp: 2025-11-17T23:36:00.168520+00:00
+    File: sample.png
+    Original: 1,382 bytes
+    Compressed: 1,353 bytes
+    Ratio: 2.10%
+    Algorithm: BROTLI
+    Time: 118.76ms
+    Status: SUCCESS
+
+[2] COMPRESSION
+    Timestamp: 2025-11-17T23:36:00.169136+00:00
+    File: sample.png
+    Original: 1,382 bytes
+    Compressed: 1,383 bytes
+    Ratio: -0.07%
+    Algorithm: ZLIB
+    Time: 1.43ms
+    Status: SUCCESS
+
+================================================================================
+END OF REPORT
+================================================================================

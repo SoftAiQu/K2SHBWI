@@ -1,0 +1,59 @@
+# ===================================================================
+# K2SHBWI - Development Requirements
+# Optional dependencies for development and testing
+# Install with: pip install -r requirements-dev.txt
+# ===================================================================
+
+# Core Requirements (include these first)
+# pip install -r requirements.txt
+
+# Code Quality & Linting
+black>=23.12.0          # Code formatter
+flake8>=6.1.0          # Linter
+pylint>=3.0.0          # Additional linting
+isort>=5.13.0          # Import sorting
+
+# Type Checking
+mypy>=1.7.0            # Static type checker
+
+# Testing & Coverage
+pytest-cov>=4.1.0      # Coverage reporting
+pytest-xdist>=3.5.0    # Parallel test execution
+
+# Documentation
+sphinx>=7.2.0          # Documentation generator
+sphinx-rtd-theme>=2.0  # ReadTheDocs theme
+
+# Development Tools
+ipython>=8.18.0        # Interactive Python shell
+jupyter>=1.0.0         # Jupyter notebooks
+notebook>=7.0.0        # Jupyter notebook interface
+
+# Pre-commit Hooks
+pre-commit>=3.5.0      # Git pre-commit framework
+
+# ===================================================================
+# NOTES FOR INSTALLATION:
+# ===================================================================
+# 1. Install core requirements first:
+#    pip install -r requirements.txt
+#
+# 2. Then install development requirements:
+#    pip install -r requirements-dev.txt
+#
+# 3. Or install all at once:
+#    pip install -r requirements.txt -r requirements-dev.txt
+#
+# 4. For running tests:
+#    pytest                           # Run all tests
+#    pytest --cov=src                 # Run with coverage
+#    pytest -n auto                   # Parallel test execution
+#
+# 5. For code quality:
+#    black .                          # Format code
+#    flake8 src tools                 # Check code style
+#    mypy src                         # Type checking
+#
+# These are OPTIONAL and only needed if you're developing
+# or modifying K2SHBWI itself.
+# ===================================================================

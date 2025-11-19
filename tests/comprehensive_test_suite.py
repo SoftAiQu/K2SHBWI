@@ -2,6 +2,11 @@
 """
 Comprehensive Test Suite for K2SHBWI Click CLI Migration
 Tests all phases: Commands, Converters, Viewers, Testing, Documentation
+
+Now with real-time logging:
+  - Metrics logged to /logs/test_runs/
+  - JSON, TXT, and hash files generated
+  - Test status, timings, and file sizes recorded
 """
 
 import subprocess
@@ -12,7 +17,9 @@ import time
 import os
 
 # Add parent to path
-sys.path.insert(0, str(Path(__file__).parent))
+sys.path.insert(0, str(Path(__file__).parent.parent))  # Go up one level from /tests to root
+
+from src.utils.test_logger import TestLogger
 
 class TestRunner:
     """Run comprehensive tests for all phases"""
@@ -24,6 +31,9 @@ class TestRunner:
         self.start_time = time.time()
         self.python_exe = ".\\venv\\Scripts\\python.exe"
         self.cli = "tools\\cli_click.py"
+        
+        # Initialize logger
+        self.logger = TestLogger(logger_name="comprehensive_test_suite", log_type="test")
     
     def run_command(self, *args):
         """Run CLI command and capture output"""
@@ -44,19 +54,57 @@ class TestRunner:
     def test(self, name, test_func):
         """Run a test"""
         print(f"\nTesting: {name}...", end=" ")
+        test_start_time = time.time()
+        
         try:
             test_func()
+            elapsed_ms = (time.time() - test_start_time) * 1000
             print("[PASS]")
             self.test_results.append({"name": name, "status": "PASS"})
             self.passed += 1
+            
+            # Log test result
+            self.logger.log_test_result(
+                test_name=name,
+                status="PASS",
+                input_bytes=0,
+                output_bytes=0,
+                processing_time_ms=elapsed_ms,
+                compression_type="N/A",
+                error_msg=None
+            )
         except AssertionError as e:
+            elapsed_ms = (time.time() - test_start_time) * 1000
             print(f"[FAIL]: {e}")
             self.test_results.append({"name": name, "status": "FAIL", "error": str(e)})
             self.failed += 1
+            
+            # Log test result
+            self.logger.log_test_result(
+                test_name=name,
+                status="FAIL",
+                input_bytes=0,
+                output_bytes=0,
+                processing_time_ms=elapsed_ms,
+                compression_type="N/A",
+                error_msg=str(e)
+            )
         except Exception as e:
+            elapsed_ms = (time.time() - test_start_time) * 1000
             print(f"[ERROR]: {e}")
             self.test_results.append({"name": name, "status": "ERROR", "error": str(e)})
             self.failed += 1
+            
+            # Log test result
+            self.logger.log_test_result(
+                test_name=name,
+                status="FAIL",
+                input_bytes=0,
+                output_bytes=0,
+                processing_time_ms=elapsed_ms,
+                compression_type="N/A",
+                error_msg=str(e)
+            )
     
     # PHASE 3 Tests
     def test_create_command(self):
@@ -277,6 +325,19 @@ class TestRunner:
             }, f, indent=2)
         
         print("\nFull results saved to TEST_RESULTS.json")
+        
+        # Save logs with summary
+        self.logger.add_summary({
+            "test_suite": "comprehensive_test_suite",
+            "total_tests": self.passed + self.failed,
+            "passed_tests": self.passed,
+            "failed_tests": self.failed,
+            "total_time_seconds": elapsed,
+            "success_rate_percent": (self.passed / (self.passed + self.failed) * 100) if (self.passed + self.failed) > 0 else 0
+        })
+        log_paths = self.logger.save_log()
+        
+        print(f"\n[Logging] Metrics saved to {log_paths['json']}")
         
         sys.exit(0 if self.failed == 0 else 1)
 

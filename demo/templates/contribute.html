@@ -1,0 +1,357 @@
+{% extends "base.html" %}
+
+{% block title %}Contribute to K2SHBWI - Join Our Community{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <!-- Page Header -->
+    <div class="row mb-5">
+        <div class="col-lg-8 mx-auto text-center">
+            <h1 class="display-4 mb-4">Contribute to K2SHBWI</h1>
+            <p class="lead text-muted">Help us build the future of image compression. All contributions are welcome!</p>
+        </div>
+    </div>
+
+    <!-- Getting Started -->
+    <div class="row mb-5">
+        <div class="col-lg-10 mx-auto">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0"><i class="fas fa-rocket"></i> Getting Started</h5>
+                </div>
+                <div class="card-body p-5">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <h6 class="mb-3">1. Fork & Clone</h6>
+                            <p class="text-muted">Start by forking the repository on GitHub and cloning it locally:</p>
+                            <code class="bg-light p-2 d-block rounded">git clone https://github.com/your-user/k2shbwi.git</code>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="mb-3">2. Setup Environment</h6>
+                            <p class="text-muted">Create a Python virtual environment and install dependencies:</p>
+                            <code class="bg-light p-2 d-block rounded">python -m venv venv && source venv/bin/activate</code>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="mb-3">3. Install Dependencies</h6>
+                            <p class="text-muted">Install all required packages:</p>
+                            <code class="bg-light p-2 d-block rounded">pip install -r requirements.txt</code>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="mb-3">4. Create a Branch</h6>
+                            <p class="text-muted">Create a feature branch for your changes:</p>
+                            <code class="bg-light p-2 d-block rounded">git checkout -b feature/your-feature</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ways to Contribute -->
+    <div class="row mb-5">
+        <div class="col-lg-10 mx-auto">
+            <h2 class="text-center mb-4">Ways to Contribute</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-code text-primary"></i> Code Development</h5>
+                            <p class="card-text">Improve algorithms, fix bugs, optimize performance, or add new features. Check our GitHub issues for ideas.</p>
+                            <a href="https://github.com" target="_blank" class="btn btn-sm btn-primary">View Issues</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-book text-success"></i> Documentation</h5>
+                            <p class="card-text">Improve README files, API documentation, tutorials, or write blog posts about K2SHBWI.</p>
+                            <a href="https://github.com" target="_blank" class="btn btn-sm btn-success">View Docs</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-flask text-info"></i> Testing & QA</h5>
+                            <p class="card-text">Write tests, find bugs, test on different systems, or contribute performance benchmarks.</p>
+                            <a href="https://github.com" target="_blank" class="btn btn-sm btn-info">Test Suite</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-chart-bar text-warning"></i> Research</h5>
+                            <p class="card-text">Conduct benchmarks, analyze results, publish findings, or collaborate on academic research.</p>
+                            <a href="https://github.com" target="_blank" class="btn btn-sm btn-warning">Research Hub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-share-alt text-danger"></i> Community</h5>
+                            <p class="card-text">Help answer questions, moderate discussions, organize events, or spread the word about K2SHBWI.</p>
+                            <a href="https://github.com" target="_blank" class="btn btn-sm btn-danger">Community</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-briefcase text-secondary"></i> Integrations</h5>
+                            <p class="card-text">Create plugins, integrations with other tools, or build wrapper libraries for different languages.</p>
+                            <a href="https://github.com" target="_blank" class="btn btn-sm btn-secondary">Plugins</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- How Compression Works -->
+    <div class="row mb-5">
+        <div class="col-lg-10 mx-auto">
+            <h2 class="text-center mb-4">How K2SHBWI Compression Works</h2>
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-5">
+                    <div class="row mb-4">
+                        <div class="col-md-3 text-center">
+                            <div class="step-circle">1</div>
+                            <h6 class="mt-3">Analysis</h6>
+                            <p class="text-muted small">Input image is analyzed for color patterns and frequency components</p>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <div class="step-circle">2</div>
+                            <h6 class="mt-3">Transformation</h6>
+                            <p class="text-muted small">DCT/Wavelet transformation decomposes image into components</p>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <div class="step-circle">3</div>
+                            <h6 class="mt-3">Quantization</h6>
+                            <p class="text-muted small">Components are quantized based on perceptual importance</p>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <div class="step-circle">4</div>
+                            <h6 class="mt-3">Encoding</h6>
+                            <p class="text-muted small">Huffman/Arithmetic coding produces compressed output</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Development Tips -->
+    <div class="row mb-5">
+        <div class="col-lg-10 mx-auto">
+            <h2 class="text-center mb-4">Development Tips & Best Practices</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h6><i class="fas fa-check text-success"></i> Performance Matters</h6>
+                            <p class="text-muted small">Use profiling tools. Every millisecond counts in compression algorithms. Benchmark before/after changes.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h6><i class="fas fa-check text-success"></i> Test Thoroughly</h6>
+                            <p class="text-muted small">Write unit tests for new code. Test with diverse image types. Maintain >90% code coverage.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h6><i class="fas fa-check text-success"></i> Document Well</h6>
+                            <p class="text-muted small">Add docstrings to functions. Keep README updated. Explain complex algorithms with comments.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h6><i class="fas fa-check text-success"></i> Follow Code Style</h6>
+                            <p class="text-muted small">Use Black for formatting. Follow PEP 8 guidelines. Run flake8/pylint before committing.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h6><i class="fas fa-check text-success"></i> Commit Wisely</h6>
+                            <p class="text-muted small">Use atomic commits with clear messages. Reference issues in commits. Keep commits focused.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h6><i class="fas fa-check text-success"></i> Review Process</h6>
+                            <p class="text-muted small">Create PRs for all changes. Be open to feedback. Help review others' PRs. Be respectful.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contributing Guide -->
+    <div class="row mb-5">
+        <div class="col-lg-10 mx-auto">
+            <h2 class="text-center mb-4">Pull Request Process</h2>
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-5">
+                    <ol class="list-group list-group-numbered">
+                        <li class="list-group-item">
+                            <strong>Create descriptive PR title:</strong> "Fix: Memory leak in encoder" or "Feature: GPU acceleration for DCT"
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Write PR description:</strong> Explain what changes, why they matter, and how to test them
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Pass all tests:</strong> All GitHub Actions CI/CD checks must pass
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Add tests & documentation:</strong> New features must include tests and updated docs
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Wait for review:</strong> At least one maintainer must review and approve
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Squash & merge:</strong> Maintainers will merge and add entry to changelog
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Code of Conduct -->
+    <div class="row mb-5">
+        <div class="col-lg-10 mx-auto">
+            <div class="alert alert-info" role="alert">
+                <h5 class="alert-heading"><i class="fas fa-handshake"></i> Code of Conduct</h5>
+                <p>
+                    Our community is committed to providing a welcoming, respectful, and inclusive environment. 
+                    All contributors are expected to uphold our Code of Conduct. Harassment, discrimination, or 
+                    disrespectful behavior will not be tolerated. Report issues to conduct@k2shbwi.dev
+                </p>
+                <hr>
+                <p class="mb-0">
+                    <a href="#" class="alert-link">Read Full Code of Conduct</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resources -->
+    <div class="row mb-5">
+        <div class="col-lg-10 mx-auto">
+            <h2 class="text-center mb-4">Helpful Resources</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-light">
+                            <h6 class="mb-0">Documentation</h6>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    <a href="#" class="text-decoration-none">
+                                        <i class="fas fa-external-link-alt"></i> API Documentation
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#" class="text-decoration-none">
+                                        <i class="fas fa-external-link-alt"></i> Architecture Guide
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#" class="text-decoration-none">
+                                        <i class="fas fa-external-link-alt"></i> Algorithm Papers
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#" class="text-decoration-none">
+                                        <i class="fas fa-external-link-alt"></i> FAQ
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-light">
+                            <h6 class="mb-0">Community</h6>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    <a href="https://github.com" target="_blank" class="text-decoration-none">
+                                        <i class="fab fa-github"></i> GitHub Discussions
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#" class="text-decoration-none">
+                                        <i class="fab fa-slack"></i> Slack Channel
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#" class="text-decoration-none">
+                                        <i class="fab fa-twitter"></i> Twitter Community
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="mailto:community@k2shbwi.dev" class="text-decoration-none">
+                                        <i class="fas fa-envelope"></i> Email Us
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card shadow-sm border-0 bg-dark text-white">
+                <div class="card-body p-5 text-center">
+                    <h4 class="mb-3">Ready to Contribute?</h4>
+                    <p class="lead mb-4">Check out our GitHub repository and find an issue to work on!</p>
+                    <a href="https://github.com" target="_blank" class="btn btn-light btn-lg">
+                        <i class="fab fa-github"></i> Visit GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<style>
+.step-circle {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #0d6efd 0%, #0dcaf0 100%);
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 auto;
+}
+</style>
+{% endblock %}

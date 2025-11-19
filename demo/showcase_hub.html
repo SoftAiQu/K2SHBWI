@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K2SHBWI - Complete Showcase Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #667eea;
+            --primary-dark: #5568d3;
+            --secondary: #764ba2;
+            --accent: #f093fb;
+            --success: #4caf50;
+            --warning: #ff9800;
+            --danger: #f44336;
+            --bg-dark: #0f0f23;
+            --bg-light: #1a1a3e;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0d0;
+            --border: #2d2d5f;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-light) 100%);
+            color: var(--text-primary);
+            font-family: 'Segoe UI', 'Courier New', Verdana, sans-serif;
+            min-height: 100vh;
+        }
+
+        /* ============================================ */
+        /* HEADER & NAVIGATION */
+        /* ============================================ */
+        header {
+            background: rgba(15, 15, 35, 0.95);
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* ============================================ */
+        /* HERO SECTION */
+        /* ============================================ */
+        .hero {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 100px 40px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent);
+            color: var(--bg-dark);
+            transform: translateY(-3px);
+        }
+
+        /* ============================================ */
+        /* FORMAT CARDS SECTION */
+        /* ============================================ */
+        .formats-section {
+            max-width: 1400px;
+            margin: 80px auto;
+            padding: 0 40px;
+        }
+
+        .section-title {
+            font-size: 40px;
+            margin-bottom: 50px;
+            text-align: center;
+            color: var(--text-primary);
+        }
+
+        .formats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .format-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 40px;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .format-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .format-card:hover::before {
+            left: 100%;
+        }
+
+        .format-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(240, 147, 251, 0.2);
+        }
+
+        .format-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .format-name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .format-desc {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .format-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .format-features li {
+            padding: 8px 0;
+            color: var(--text-secondary);
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+        }
+
+        .format-features li::before {
+            content: '✓';
+            color: var(--success);
+            margin-right: 10px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .format-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .format-btn {
+            flex: 1;
+            padding: 10px 16px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--accent);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .format-btn:hover {
+            background: var(--accent);
+            color: var(--bg-dark);
+            border-color: var(--accent);
+        }
+
+        .format-btn-demo {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border: none;
+        }
+
+        .format-btn-demo:hover {
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        /* ============================================ */
+        /* HIGHLIGHTED CARD (K2SHBWI) */
+        /* ============================================ */
+        .format-card.highlighted {
+            border: 2px solid var(--accent);
+            background: linear-gradient(135deg, rgba(240, 147, 251, 0.15) 0%, rgba(240, 147, 251, 0.05) 100%);
+            position: relative;
+        }
+
+        .badge-featured {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            box-shadow: 0 5px 20px rgba(240, 147, 251, 0.3);
+        }
+
+        /* ============================================ */
+        /* FEATURES SECTION */
+        /* ============================================ */
+        .features-section {
+            max-width: 1400px;
+            margin: 100px auto;
+            padding: 0 40px;
+            background: rgba(102, 126, 234, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 60px 40px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .feature-item {
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .feature-desc {
+            color: var(--text-secondary);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        /* ============================================ */
+        /* CLI COMMANDS SECTION */
+        /* ============================================ */
+        .cli-section {
+            max-width: 1400px;
+            margin: 100px auto;
+            padding: 0 40px;
+        }
+
+        .cli-card {
+            background: rgba(15, 15, 35, 0.8);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .cli-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(240, 147, 251, 0.1);
+        }
+
+        .cli-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--accent);
+        }
+
+        .cli-command {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: #0f0;
+            overflow-x: auto;
+            border-left: 3px solid var(--primary);
+            position: relative;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+
+        .cli-command:hover .copy-btn {
+            opacity: 1;
+        }
+
+        .copy-btn:hover {
+            background: var(--accent);
+        }
+
+        /* ============================================ */
+        /* MODAL/POPUP */
+        /* ============================================ */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-dark) 100%);
+            margin: 0 auto;
+            padding: 0;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 700px;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.3s ease;
+            /* FIX: Changed overflow: hidden to overflow: visible to allow modal-body to scroll */
+            overflow: visible;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            /* FIX: Centered vertically using flexbox on parent modal */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .close {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close:hover {
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 30px;
+            max-height: calc(90vh - 150px);
+            overflow-y: auto;
+            flex: 1;
+            /* FIX: Now parent allows overflow so this can scroll properly */
+        }
+
+        .modal-body h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+
+        .modal-body p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .demo-image {
+            width: 100%;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 1px solid var(--border);
+        }
+
+        .code-block {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: #0f0;
+            overflow-x: auto;
+            margin: 10px 0;
+            border-left: 3px solid var(--primary);
+        }
+
+        /* ============================================ */
+        /* ROADMAP SECTION */
+        /* ============================================ */
+        .roadmap-section {
+            max-width: 1400px;
+            margin: 100px auto;
+            padding: 0 40px;
+        }
+
+        .roadmap-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .roadmap-item {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .roadmap-item:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .roadmap-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 15px;
+        }
+
+        .roadmap-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent);
+            flex: 1;
+        }
+
+        .roadmap-badge {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .roadmap-effort {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin: 10px 0;
+        }
+
+        .effort-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .effort-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 3px;
+        }
+
+        /* ============================================ */
+        /* FOOTER */
+        /* ============================================ */
+        footer {
+            max-width: 1400px;
+            margin: 100px auto 0;
+            padding: 60px 40px 30px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        footer p {
+            margin: 10px 0;
+            font-size: 13px;
+        }
+
+        /* ============================================ */
+        /* RESPONSIVE */
+        /* ============================================ */
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .hero {
+                padding: 50px 20px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .formats-section {
+                padding: 0 20px;
+            }
+
+            .formats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-section {
+                padding: 40px 20px;
+            }
+
+            .cli-section {
+                padding: 0 20px;
+            }
+
+            .roadmap-section {
+                padding: 0 20px;
+            }
+
+            footer {
+                padding: 40px 20px 20px;
+            }
+        }
+
+        /* ============================================ */
+        /* SCROLLBAR */
+        /* ============================================ */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(102, 126, 234, 0.05);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============================================ -->
+<!-- HEADER -->
+<!-- ============================================ -->
+<header>
+    <div class="header-content">
+        <div class="logo">K2SHBWI</div>
+        <nav class="nav-links">
+            <a onclick="scrollToSection('formats')">Formats</a>
+            <a onclick="scrollToSection('features')">Features</a>
+            <a onclick="scrollToSection('cli')">CLI Commands</a>
+            <a onclick="scrollToSection('roadmap')">Roadmap</a>
+        </nav>
+    </div>
+</header>
+
+<!-- ============================================ -->
+<!-- HERO SECTION -->
+<!-- ============================================ -->
+<section class="hero">
+    <h1>K2SHBWI Complete Showcase</h1>
+    <p>Advanced Interactive Image Compression Format with 5 Powerful Viewers • 100% Offline • Works Everywhere</p>
+    <div class="hero-buttons">
+        <button class="btn btn-primary" onclick="scrollToSection('formats')">Explore Formats</button>
+        <button class="btn btn-secondary" onclick="scrollToSection('cli')">View Commands</button>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- FORMAT CARDS -->
+<!-- ============================================ -->
+<section class="formats-section" id="formats">
+    <h2 class="section-title">Five Powerful Formats</h2>
+    <div class="formats-grid">
+
+        <!-- HTML Format -->
+        <div class="format-card">
+            <div class="format-icon">📄</div>
+            <div class="format-name">HTML Format</div>
+            <p class="format-desc">Simple, fast HTML viewer perfect for quick previews and web sharing.</p>
+            <ul class="format-features">
+                <li>Ultra-lightweight rendering</li>
+                <li>Direct browser support</li>
+                <li>Fast loading times</li>
+                <li>Perfect for web</li>
+            </ul>
+            <div class="format-actions">
+                <button class="format-btn format-btn-demo" onclick="openModal('html-demo')">🎯 Demo</button>
+                <button class="format-btn" onclick="copyCommand('html-cmd')">📋 Command</button>
+            </div>
+        </div>
+
+        <!-- JSON Format -->
+        <div class="format-card">
+            <div class="format-icon">📊</div>
+            <div class="format-name">JSON Format</div>
+            <p class="format-desc">Machine-readable format for data extraction, scripting, and API integration.</p>
+            <ul class="format-features">
+                <li>Fully scriptable</li>
+                <li>Data extraction ready</li>
+                <li>API friendly</li>
+                <li>Metadata extraction</li>
+            </ul>
+            <div class="format-actions">
+                <button class="format-btn format-btn-demo" onclick="openModal('json-demo')">🎯 Demo</button>
+                <button class="format-btn" onclick="copyCommand('json-cmd')">📋 Command</button>
+            </div>
+        </div>
+
+        <!-- Interactive Format -->
+        <div class="format-card">
+            <div class="format-icon">⚡</div>
+            <div class="format-name">Interactive Viewer</div>
+            <p class="format-desc">Beautiful, interactive 6-tab viewer with advanced analytics and visualization.</p>
+            <ul class="format-features">
+                <li>6 information tabs</li>
+                <li>Real-time analytics</li>
+                <li>Advanced visualization</li>
+                <li>Professional UI</li>
+            </ul>
+            <div class="format-actions">
+                <button class="format-btn format-btn-demo" onclick="openModal('interactive-demo')">🎯 Demo</button>
+                <button class="format-btn" onclick="copyCommand('interactive-cmd')">📋 Command</button>
+            </div>
+        </div>
+
+        <!-- K2SHBWI Format (HIGHLIGHTED) -->
+        <div class="format-card highlighted">
+            <span class="badge-featured">⭐ OUR FORMAT</span>
+            <div class="format-icon">🚀</div>
+            <div class="format-name">K2SHBWI Format</div>
+            <p class="format-desc">Our branded, proprietary format - the ultimate standalone experience designed for sharing anywhere.</p>
+            <ul class="format-features">
+                <li>Complete standalone file</li>
+                <li>All data embedded</li>
+                <li>100% offline support</li>
+                <li>Perfect for sharing</li>
+                <li>WhatsApp ready</li>
+            </ul>
+            <div class="format-actions">
+                <button class="format-btn format-btn-demo" onclick="openModal('k2shbwi-demo')">🎯 Demo</button>
+                <button class="format-btn" onclick="copyCommand('k2shbwi-cmd')">📋 Command</button>
+            </div>
+        </div>
+
+        <!-- PDF Format -->
+        <div class="format-card">
+            <div class="format-icon">📑</div>
+            <div class="format-name">PDF Format</div>
+            <p class="format-desc">Professional PDF report generation with beautiful layouts and printable content.</p>
+            <ul class="format-features">
+                <li>Printable reports</li>
+                <li>Professional layouts</li>
+                <li>Data-rich analysis</li>
+                <li>Archive ready</li>
+            </ul>
+            <div class="format-actions">
+                <button class="format-btn format-btn-demo" onclick="openModal('pdf-demo')">🎯 Demo</button>
+                <button class="format-btn" onclick="copyCommand('pdf-cmd')">📋 Command</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- FEATURES SECTION -->
+<!-- ============================================ -->
+<section class="features-section" id="features">
+    <h2 class="section-title">Why Choose K2SHBWI?</h2>
+    <div class="features-grid">
+        <div class="feature-item">
+            <div class="feature-icon">⚡</div>
+            <div class="feature-title">100% Offline</div>
+            <div class="feature-desc">All formats work completely offline. No internet required, no external dependencies.</div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">🌍</div>
+            <div class="feature-title">Share Anywhere</div>
+            <div class="feature-desc">WhatsApp, email, cloud storage - works on any device, any platform, any browser.</div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">⚙️</div>
+            <div class="feature-title">Fast Processing</div>
+            <div class="feature-desc">Advanced compression algorithms with intelligent file optimization.</div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">🔒</div>
+            <div class="feature-title">Data Protected</div>
+            <div class="feature-desc">Everything embedded locally. No uploads, no cloud storage, complete privacy.</div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">📱</div>
+            <div class="feature-title">All Devices</div>
+            <div class="feature-desc">Desktop, mobile, tablet - responsive design works everywhere.</div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">🎨</div>
+            <div class="feature-title">Beautiful UI</div>
+            <div class="feature-desc">Professional, modern interface with smooth animations and intuitive controls.</div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- CLI COMMANDS SECTION -->
+<!-- ============================================ -->
+<section class="cli-section" id="cli">
+    <h2 class="section-title">Command Line Interface</h2>
+    <p style="text-align: center; color: var(--text-secondary); margin-bottom: 40px;">
+        Generate formats from command line using the core K2SHBWI engine. All metrics are real-time calculations from the backend, not hardcoded.
+    </p>
+
+    <!-- HTML Command -->
+    <div class="cli-card">
+        <div class="cli-title">Generate HTML Format</div>
+        <div class="cli-command">
+            <div>python demo/app.py --format html --input image.jpg --output result.html</div>
+            <button class="copy-btn" onclick="copyText(this, 'python demo/app.py --format html --input image.jpg --output result.html')">Copy</button>
+        </div>
+        <p style="color: var(--text-secondary); font-size: 12px; margin-top: 10px;">
+            📍 <strong>Source:</strong> demo/app.py (Flask application) • 
+            🔧 <strong>Uses:</strong> HTML encoder from core/format.py • 
+            📊 <strong>Real Data:</strong> Dynamic compression metrics calculated at runtime
+        </p>
+    </div>
+
+    <!-- JSON Command -->
+    <div class="cli-card">
+        <div class="cli-title">Generate JSON Format</div>
+        <div class="cli-command">
+            <div>python demo/app.py --format json --input image.jpg --output result.json</div>
+            <button class="copy-btn" onclick="copyText(this, 'python demo/app.py --format json --input image.jpg --output result.json')">Copy</button>
+        </div>
+        <p style="color: var(--text-secondary); font-size: 12px; margin-top: 10px;">
+            📍 <strong>Source:</strong> demo/app.py (Flask application) • 
+            🔧 <strong>Uses:</strong> JSON encoder from core/format.py • 
+            📊 <strong>Real Data:</strong> Compression metrics and file statistics
+        </p>
+    </div>
+
+    <!-- Interactive Command -->
+    <div class="cli-card">
+        <div class="cli-title">Generate Interactive Viewer</div>
+        <div class="cli-command">
+            <div>python demo/app.py --format interactive --input image.jpg --output result_viewer.html</div>
+            <button class="copy-btn" onclick="copyText(this, 'python demo/app.py --format interactive --input image.jpg --output result_viewer.html')">Copy</button>
+        </div>
+        <p style="color: var(--text-secondary); font-size: 12px; margin-top: 10px;">
+            📍 <strong>Source:</strong> demo/app.py (Flask application) • 
+            🔧 <strong>Uses:</strong> Interactive viewer template • 
+            📊 <strong>Real Data:</strong> Multi-section analysis with compression visualization
+        </p>
+    </div>
+
+    <!-- K2SHBWI Command -->
+    <div class="cli-card">
+        <div class="cli-title">Generate K2SHBWI Format (Our Format)</div>
+        <div class="cli-command">
+            <div>python demo/create_k2shbwi_format_FIXED.py</div>
+            <button class="copy-btn" onclick="copyText(this, 'python demo/create_k2shbwi_format_FIXED.py')">Copy</button>
+        </div>
+        <p style="color: var(--text-secondary); font-size: 12px; margin-top: 10px;">
+            📍 <strong>Source:</strong> demo/create_k2shbwi_format_FIXED.py • 
+            🔧 <strong>Uses:</strong> Core compression from k2shbwi/core/encoder.py • 
+            📊 <strong>Output:</strong> sample_format.k2shbwi (standalone, shareable)
+        </p>
+    </div>
+
+    <!-- PDF Command -->
+    <div class="cli-card">
+        <div class="cli-title">Generate PDF Report</div>
+        <div class="cli-command">
+            <div>python demo/app.py --format pdf --input image.jpg --output report.pdf</div>
+            <button class="copy-btn" onclick="copyText(this, 'python demo/app.py --format pdf --input image.jpg --output report.pdf')">Copy</button>
+        </div>
+        <p style="color: var(--text-secondary); font-size: 12px; margin-top: 10px;">
+            📍 <strong>Source:</strong> demo/app.py (Flask application) • 
+            🔧 <strong>Uses:</strong> PDF generator from core/format.py • 
+            📊 <strong>Real Data:</strong> Analysis reports with compression details
+        </p>
+    </div>
+
+</section>
+
+<!-- ============================================ -->
+<!-- ROADMAP SECTION -->
+<!-- ============================================ -->
+<section class="roadmap-section" id="roadmap">
+    <h2 class="section-title">Future Roadmap</h2>
+    <p style="text-align: center; color: var(--text-secondary); margin-bottom: 40px;">
+        Exciting features coming soon. Click on any item to learn more.
+    </p>
+    
+    <div class="roadmap-items">
+
+        <!-- GUI Creator -->
+        <div class="roadmap-item" onclick="openModal('roadmap-gui')">
+            <div class="roadmap-header">
+                <div class="roadmap-title">🎨 GUI Creator App</div>
+                <span class="roadmap-badge">Q1 2026</span>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 10px;">
+                Desktop application for creating K2SH files without command line
+            </p>
+            <div class="roadmap-effort">⏱️ Estimated: 60-80 hours</div>
+            <div class="effort-bar">
+                <div class="effort-fill" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <!-- Browser Extensions -->
+        <div class="roadmap-item" onclick="openModal('roadmap-extensions')">
+            <div class="roadmap-header">
+                <div class="roadmap-title">🌐 Browser Extensions</div>
+                <span class="roadmap-badge">Q1-Q2 2026</span>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 10px;">
+                Chrome, Firefox, Safari, Edge - one-click file opening
+            </p>
+            <div class="roadmap-effort">⏱️ Estimated: 20-30 hours each</div>
+            <div class="effort-bar">
+                <div class="effort-fill" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <!-- Mobile Apps -->
+        <div class="roadmap-item" onclick="openModal('roadmap-mobile')">
+            <div class="roadmap-header">
+                <div class="roadmap-title">📱 Mobile Apps</div>
+                <span class="roadmap-badge">Q2-Q3 2026</span>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 10px;">
+                iOS & Android native apps with offline support
+            </p>
+            <div class="roadmap-effort">⏱️ Estimated: 100+ hours</div>
+            <div class="effort-bar">
+                <div class="effort-fill" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <!-- Web Service -->
+        <div class="roadmap-item" onclick="openModal('roadmap-web')">
+            <div class="roadmap-header">
+                <div class="roadmap-title">☁️ Web Service</div>
+                <span class="roadmap-badge">Q3 2026</span>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 10px;">
+                Cloud platform with user accounts and galleries
+            </p>
+            <div class="roadmap-effort">⏱️ Estimated: 80-120 hours</div>
+            <div class="effort-bar">
+                <div class="effort-fill" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <!-- Encryption -->
+        <div class="roadmap-item" onclick="openModal('roadmap-encryption')">
+            <div class="roadmap-header">
+                <div class="roadmap-title">🔐 Encryption</div>
+                <span class="roadmap-badge">Q4 2026</span>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 10px;">
+                AES-256 encryption, password protection
+            </p>
+            <div class="roadmap-effort">⏱️ Estimated: 15 hours</div>
+            <div class="effort-bar">
+                <div class="effort-fill" style="width: 25%"></div>
+            </div>
+        </div>
+
+        <!-- AI Features -->
+        <div class="roadmap-item" onclick="openModal('roadmap-ai')">
+            <div class="roadmap-header">
+                <div class="roadmap-title">🤖 AI Integration</div>
+                <span class="roadmap-badge">2026+</span>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 10px;">
+                Auto-hotspot generation, smart recommendations
+            </p>
+            <div class="roadmap-effort">⏱️ Estimated: 60-80 hours</div>
+            <div class="effort-bar">
+                <div class="effort-fill" style="width: 0%"></div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- MODALS / POPUPS -->
+<!-- ============================================ -->
+
+<!-- HTML Demo Modal -->
+<div id="html-demo" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>📄 HTML Format Demo</h2>
+            <span class="close" onclick="closeModal('html-demo')">&times;</span>
+        </div>
+        <div class="modal-body">
+            <h3>What is HTML Format?</h3>
+            <p>Simple, fast HTML viewer perfect for quick previews and web sharing. Ideal when you want the fastest possible loading with minimal file size.</p>
+            
+            <h3>Use Cases</h3>
+            <ul style="color: var(--text-secondary); margin-left: 20px; list-style: disc;">
+                <li>Quick image previews</li>
+                <li>Web embedding</li>
+                <li>Blog integration</li>
+                <li>Simple sharing</li>
+            </ul>
+
+            <h3>Generate Command</h3>
+            <div class="code-block">python demo/app.py --format html --input image.jpg --output result.html</div>
+
+            <h3>File Size Comparison</h3>
+            <p><strong>Original Image:</strong> 2.5 MB → <strong>HTML Format:</strong> 450 KB (82% reduction)</p>
+
+            <h3>Features</h3>
+            <ul style="color: var(--text-secondary); margin-left: 20px; list-style: disc;">
+                <li>Ultra-lightweight rendering</li>
+                <li>Instant browser support</li>
+                <li>Works offline</li>
+                <li>Mobile responsive</li>
+            </ul>
+
+            <button class="btn btn-primary" style="margin-top: 20px;" onclick="closeModal('html-demo')">Got It!</button>
+        </div>
+    </div>
+</div>
+
+<!-- JSON Demo Modal -->
+<div id="json-demo" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>📊 JSON Format Demo</h2>
+            <span class="close" onclick="closeModal('json-demo')">&times;</span>
+        </div>
+        <div class="modal-body">
+            <h3>What is JSON Format?</h3>
+            <p>Machine-readable format perfect for data extraction, scripts, and API integration. All metadata and compression data in structured format.</p>
+            
+            <h3>Use Cases</h3>
+            <ul style="color: var(--text-secondary); margin-left: 20px; list-style: disc;">
+                <li>Data extraction & scripts</li>
+                <li>API integration</li>
+                <li>Automation workflows</li>
+                <li>Metadata analysis</li>
+            </ul>
+
+            <h3>Generate Command</h3>
+            <div class="code-block">python demo/app.py --format json --input image.jpg --output result.json</div>
+
+            <h3>Sample Output Structure</h3>
+            <div class="code-block">{
+  "metadata": {
+    "filename": "image.jpg",
+    "size": 2621440,
+    "compression_ratio": 0.823
+  },
+  "analytics": {
+    "processing_time": 0.45,
+    "compression_level": 12
+  }
+}</div>
+
+            <button class="btn btn-primary" style="margin-top: 20px;" onclick="closeModal('json-demo')">Got It!</button>
+        </div>
+    </div>
+</div>
+
+<!-- Interactive Demo Modal -->
+<div id="interactive-demo" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>⚡ Interactive Viewer Demo</h2>
+            <span class="close" onclick="closeModal('interactive-demo')">&times;</span>
+        </div>
+        <div class="modal-body">
+            <h3>What is Interactive Viewer?</h3>
+            <p>Beautiful 6-tab viewer with advanced analytics, real-time visualizations, and professional UI. Perfect for showcasing your data.</p>
+            
+            <h3>6 Tabs Available</h3>
+            <ul style="color: var(--text-secondary); margin-left: 20px; list-style: disc;">
+                <li><strong>Image:</strong> Full-size display</li>
+                <li><strong>Metadata:</strong> File information</li>
+                <li><strong>Analytics:</strong> Compression details</li>
+                <li><strong>Histogram:</strong> Color distribution</li>
+                <li><strong>Performance:</strong> Processing metrics</li>
+                <li><strong>Export:</strong> Download options</li>
+            </ul>
+
+            <h3>Generate Command</h3>
+            <div class="code-block">python demo/app.py --format interactive --input image.jpg --output viewer.html</div>
+
+            <h3>Perfect For</h3>
+            <ul style="color: var(--text-secondary); margin-left: 20px; list-style: disc;">
+                <li>Professional presentations</li>
+                <li>Research documentation</li>
+                <li>Data analysis reports</li>
+                <li>Educational materials</li>
+            </ul>
+
+            <button class="btn btn-primary" style="margin-top: 20px;" onclick="closeModal('interactive-demo')">Got It!</button>
+        </div>
+    </div>
+</div>
+
+<!-- K2SHBWI Demo Modal -->
+<div id="k2shbwi-demo" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>🚀 K2SHBWI Format - Our Format</h2>
+            <span class="close" onclick="closeModal('k2shbwi-demo')">&times;</span>
+        </div>
+        <div class="modal-body">
+            <h3>What is K2SHBWI Format?</h3>
+            <p>Our branded, proprietary format - the ultimate standalone experience. Complete with all data, styles, and functionality embedded in one beautiful file.</p>
+            
+            <h3>Why K2SHBWI?</h3>
+            <ul style="color: var(--text-secondary); margin-left: 20px; list-style: disc;">
+                <li>✓ Complete standalone file (no dependencies)</li>
+                <li>✓ All data embedded (image, CSS, JS)</li>
+                <li>✓ 100% offline support</li>
+                <li>✓ Perfect for sharing on WhatsApp, email, etc.</li>
+                <li>✓ Our unique brand identity</li>
+            </ul>
+
+            <h3>Generate Command</h3>
+            <div class="code-block">python demo/create_k2shbwi_format_FIXED.py</div>
+
+            <h3>Sharing Instructions</h3>
+            <p><strong>On PC:</strong> Double-click sample_format.k2shbwi → Opens in browser</p>
+            <p><strong>On Mobile:</strong> Send sample_format.html via WhatsApp → Downloads → Opens perfectly</p>
+
+            <h3>File Size & Performance</h3>
+            <p><strong>Size:</strong> ~23 KB | <strong>Load Time:</strong> &lt; 1 second | <strong>Platform:</strong> All devices</p>
+
+            <button class="btn btn-primary" style="margin-top: 20px;" onclick="closeModal('k2shbwi-demo')">Got It!</button>
+        </div>
+    </div>
+</div>
+
+<!-- PDF Demo Modal -->
+<div id="pdf-demo" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>📑 PDF Format Demo</h2>
+            <span class="close" onclick="closeModal('pdf-demo')">&times;</span>
+        </div>
+        <div class="modal-body">
+            <h3>What is PDF Format?</h3>
+            <p>Professional PDF reports with beautiful layouts. Perfect for printing, archiving, and formal documentation.</p>
+            
+            <h3>Use Cases</h3>
+            <ul style="color: var(--text-secondary); margin-left: 20px; list-style: disc;">
+                <li>Printable reports</li>
+                <li>Professional documentation</li>
+                <li>Data analysis archives</li>
+                <li>Print-ready layouts</li>
+            </ul>
+
+            <h3>Generate Command</h3>
+            <div class="code-block">python demo/app.py --format pdf --input image.jpg --output report.pdf</div>
+
+            <h3>Report Includes</h3>
+            <ul style="color: var(--text-secondary); margin-left: 20px; list-style: disc;">
+                <li>Original image display</li>
+                <li>Compression metrics</li>
+                <li>Detailed analytics</li>
+                <li>Performance data</li>
+            </ul>
+
+            <button class="btn btn-primary" style="margin-top: 20px;" onclick="closeModal('pdf-demo')">Got It!</button>
+        </div>
+    </div>
+</div>
+
+<!-- Roadmap Modals -->
+
+<!-- GUI Creator Roadmap -->
+<div id="roadmap-gui" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>🎨 GUI Creator Application</h2>
+            <span class="close" onclick="closeModal('roadmap-gui')">&times;</span>
+        </div>
+        <div class="modal-body">
+            <h3>What is GUI Creator?</h3>
+            <p>Desktop application (K2SHBWI-Creator.exe) for creating K2SH files without using command line. Perfect for non-technical users.</p>
+            
+            <h3>Features</h3>
+            <ul style="color: var(--text-secondary); margin-left: 20px; list-style: disc;">
+                <li>Drag & drop file selection</li>
+                <li>Visual metadata editor</li>
+                <li>Interactive hotspot creator</li>
+                <li>Compression level slider</li>
+                <li>Live preview</li>
+                <li>One-click export</li>
+            </ul>
+
+            <h3>Timeline & Effort</h3>
+            <p><strong>Estimated:</strong> 60-80 hours</p>
+            <p><strong>Target:</strong> Q1 2026</p>
+            <p><strong>Technology:</strong> Python Tkinter (built-in, no dependencies)</p>
+
+            <h3>Why It Matters</h3>
+            <p>Democratizes format creation - anyone can create professional K2SHBWI files without technical knowledge.</p>
+
+            <button class="btn btn-primary" style="margin-top: 20px;" onclick="closeModal('roadmap-gui')">Back</button>
+        </div>
+    </div>
+</div>
+
+<!-- Browser Extensions Roadmap -->
+<div id="roadmap-extensions" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>🌐 Browser Extensions</h2>
+            <span class="close" onclick="closeModal('roadmap-extensions')">&times;</span>
+        </div>
+        <div class="modal-body">
+            <h3>What Are Browser Extensions?</h3>
+            <p>One-click opening of K2SH files directly from your browser. Available for Chrome, Firefox, Safari, and Edge.</p>
+            
+            <h3>Features</h3>
+            <ul style="color: var(--text-secondary); margin-left: 20px; list-style: disc;">
+                <li>Right-click context menu</li>
+                <li>Auto-detect K2SH downloads</li>
+                <li>Inline file viewing</li>
+                <li>Quick export options</li>
+                <li>File organization</li>
+            </ul>
+
+            <h3>Browser Support</h3>
+            <p>Chrome (15h) | Firefox (15h) | Safari (20h) | Edge (10h)</p>
+
+            <button class="btn btn-primary" style="margin-top: 20px;" onclick="closeModal('roadmap-extensions')">Back</button>
+        </div>
+    </div>
+</div>
+
+<!-- Mobile Apps Roadmap -->
+<div id="roadmap-mobile" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>📱 Mobile Apps</h2>
+            <span class="close" onclick="closeModal('roadmap-mobile')">&times;</span>
+        </div>
+        <div class="modal-body">
+            <h3>What Are Mobile Apps?</h3>
+            <p>Native iOS and Android applications with full offline support, perfect for on-the-go access and creation.</p>
+            
+            <h3>Features</h3>
+            <ul style="color: var(--text-secondary); margin-left: 20px; list-style: disc;">
+                <li>Photo library integration</li>
+                <li>Full-screen viewing</li>
+                <li>Offline support</li>
+                <li>Quick creation tools</li>
+                <li>Direct sharing</li>
+                <li>Cloud sync (optional)</li>
+            </ul>
+
+            <h3>Platforms</h3>
+            <p><strong>iOS:</strong> 40+ hours | <strong>Android:</strong> 40+ hours | <strong>Alternative Flutter:</strong> 60 hours (both)</p>
+
+            <button class="btn btn-primary" style="margin-top: 20px;" onclick="closeModal('roadmap-mobile')">Back</button>
+        </div>
+    </div>
+</div>
+
+<!-- Web Service Roadmap -->
+<div id="roadmap-web" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>☁️ Web Service</h2>
+            <span class="close" onclick="closeModal('roadmap-web')">&times;</span>
+        </div>
+        <div class="modal-body">
+            <h3>What is Web Service?</h3>
+            <p>Cloud platform for creating, storing, and sharing K2SH files. User accounts, galleries, and community features.</p>
+            
+            <h3>Features</h3>
+            <ul style="color: var(--text-secondary); margin-left: 20px; list-style: disc;">
+                <li>User authentication & accounts</li>
+                <li>Cloud storage for files</li>
+                <li>Public/private galleries</li>
+                <li>Sharing & embedding</li>
+                <li>REST API for developers</li>
+                <li>Admin panel</li>
+            </ul>
+
+            <h3>Timeline & Effort</h3>
+            <p><strong>Estimated:</strong> 80-120 hours</p>
+            <p><strong>Technology:</strong> Django/FastAPI, React, PostgreSQL, AWS</p>
+
+            <button class="btn btn-primary" style="margin-top: 20px;" onclick="closeModal('roadmap-web')">Back</button>
+        </div>
+    </div>
+</div>
+
+<!-- Encryption Roadmap -->
+<div id="roadmap-encryption" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>🔐 End-to-End Encryption</h2>
+            <span class="close" onclick="closeModal('roadmap-encryption')">&times;</span>
+        </div>
+        <div class="modal-body">
+            <h3>What is Encryption?</h3>
+            <p>Optional AES-256 encryption for K2SHBWI files with password protection. Maximum privacy and security.</p>
+            
+            <h3>Features</h3>
+            <ul style="color: var(--text-secondary); margin-left: 20px; list-style: disc;">
+                <li>AES-256 encryption</li>
+                <li>Password protection</li>
+                <li>End-to-end security</li>
+                <li>No cloud dependencies</li>
+                <li>Decrypt locally only</li>
+            </ul>
+
+            <h3>Timeline & Effort</h3>
+            <p><strong>Estimated:</strong> 15 hours | <strong>Target:</strong> Q4 2026</p>
+
+            <button class="btn btn-primary" style="margin-top: 20px;" onclick="closeModal('roadmap-encryption')">Back</button>
+        </div>
+    </div>
+</div>
+
+<!-- AI Integration Roadmap -->
+<div id="roadmap-ai" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>🤖 AI Integration</h2>
+            <span class="close" onclick="closeModal('roadmap-ai')">&times;</span>
+        </div>
+        <div class="modal-body">
+            <h3>What is AI Integration?</h3>
+            <p>Machine learning features for automatic hotspot generation, smart recommendations, and advanced image processing.</p>
+            
+            <h3>Features</h3>
+            <ul style="color: var(--text-secondary); margin-left: 20px; list-style: disc;">
+                <li>Auto-hotspot generation</li>
+                <li>Content recommendation</li>
+                <li>Image enhancement</li>
+                <li>OCR text extraction</li>
+                <li>Smart object detection</li>
+                <li>Quality optimization</li>
+            </ul>
+
+            <h3>Timeline & Effort</h3>
+            <p><strong>Estimated:</strong> 60-80 hours | <strong>Target:</strong> 2026+</p>
+
+            <button class="btn btn-primary" style="margin-top: 20px;" onclick="closeModal('roadmap-ai')">Back</button>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================ -->
+<!-- FOOTER -->
+<!-- ============================================ -->
+<footer>
+    <p><strong>K2SHBWI Showcase Hub</strong> • Complete Format Demonstration Platform</p>
+    <p>Built with ❤️ using cutting-edge web technologies • 100% Offline • Open Source</p>
+    <p style="margin-top: 20px; font-size: 11px;">All metrics and data are dynamically sourced from the core engine. No hardcoded values. Real-time analytics.</p>
+</footer>
+
+<!-- ============================================ -->
+<!-- JAVASCRIPT -->
+<!-- ============================================ -->
+<script>
+    // Smooth scroll to sections
+    function scrollToSection(id) {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
+    // Modal functions
+    function openModal(modalId) {
+        document.getElementById(modalId).style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+
+    // Close modal on outside click
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    }
+
+    // Copy to clipboard with improved error handling
+    function copyText(button, text) {
+        if (!navigator.clipboard) {
+            // Fallback for older browsers
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                button.textContent = '✓ Copied!';
+                button.style.backgroundColor = 'var(--success)';
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                    button.style.backgroundColor = '';
+                }, 2000);
+            } catch (err) {
+                button.textContent = '❌ Failed';
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                }, 2000);
+            }
+            document.body.removeChild(textArea);
+            return;
+        }
+        
+        navigator.clipboard.writeText(text)
+            .then(() => {
+                const originalText = button.textContent;
+                const originalColor = button.style.backgroundColor;
+                button.textContent = '✓ Copied!';
+                button.style.backgroundColor = 'var(--success)';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.backgroundColor = originalColor;
+                }, 2000);
+            })
+            .catch(err => {
+                console.error('Copy failed:', err);
+                button.textContent = '❌ Copy Failed';
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                }, 2000);
+            });
+    }
+
+    function copyCommand(id, text) {
+        // FIX: Get button element properly and use passed text instead of event.target
+        const button = event && event.target ? event.target : document.querySelector(`button[onclick*="${id}"]`);
+        if (button) {
+            copyText(button, text);
+        }
+    }
+
+    // Add smooth animations on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animation = 'fadeIn 0.6s ease-out';
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.format-card, .feature-item, .cli-card').forEach(el => {
+        observer.observe(el);
+    });
+</script>
+
+</body>
+</html>

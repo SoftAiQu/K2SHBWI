@@ -1,0 +1,35 @@
+{
+  "timestamp": "2025-11-18T01:29:14.086679+00:00",
+  "logger_name": "cli_commands",
+  "log_type": "cli",
+  "system_info": {
+    "python_version": "3.12.1",
+    "platform": "Windows 11"
+  },
+  "metrics": [
+    {
+      "type": "cli_command",
+      "timestamp": "2025-11-18T01:29:14.139177+00:00",
+      "command": "encode",
+      "input_file": "tests/assets/sample.png",
+      "output_file": "test_cli_encoded.k2sh",
+      "input_bytes": 3312,
+      "output_bytes": 3372,
+      "compression_ratio_percent": -1.81,
+      "algorithm_used": "K2SHBWI_ENCODE",
+      "processing_time_ms": 46.65,
+      "status": "SUCCESS"
+    }
+  ],
+  "summary": {
+    "total_metrics": 1,
+    "total_original_bytes": 3312,
+    "total_compressed_bytes": 3372,
+    "average_compression_ratio_percent": -1.81,
+    "total_processing_time_ms": 46.65,
+    "error_count": 0,
+    "cli_tool": "k2shbwi",
+    "version": "1.0.0",
+    "logging_enabled": true
+  }
+}

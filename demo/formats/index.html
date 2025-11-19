@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K2SHBWI - 5 Format Presentation Hub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 40px 20px;
+        }
+        
+        .hero {
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
+            animation: slideDown 0.8s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 30px;
+        }
+        
+        .formats-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .format-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .format-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: left 0.3s ease;
+        }
+        
+        .format-card:hover::before {
+            left: 0;
+        }
+        
+        .format-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+        
+        .format-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #667eea;
+            transition: transform 0.3s ease;
+        }
+        
+        .format-card:hover .format-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+        
+        .format-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .format-type {
+            color: #764ba2;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .format-description {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        
+        .format-features {
+            text-align: left;
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9ff;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .format-features li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+        
+        .format-features i {
+            color: #667eea;
+            margin-right: 8px;
+        }
+        
+        .btn-access {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn-access:hover {
+            transform: scale(1.05);
+            color: white;
+        }
+        
+        .stats-section {
+            max-width: 1400px;
+            margin: 0 auto 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .stat-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .stat-box .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .stat-box .label {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+        
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .footer p {
+            margin: 10px 0;
+        }
+        
+        .badge-new {
+            background: #ff6b6b;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .formats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1><i class="fas fa-image"></i> K2SHBWI</h1>
+        <p>5 Interactive Format Demonstration</p>
+        <small>Experience the same product in 5 completely different ways</small>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="stats-section">
+        <div class="stat-box">
+            <div class="number">87.3%</div>
+            <div class="label">Compression</div>
+        </div>
+        <div class="stat-box">
+            <div class="number">96.8%</div>
+            <div class="label">Quality</div>
+        </div>
+        <div class="stat-box">
+            <div class="number">2.1 MB/s</div>
+            <div class="label">Speed</div>
+        </div>
+        <div class="stat-box">
+            <div class="number">99.8%</div>
+            <div class="label">Reliability</div>
+        </div>
+    </div>
+
+    <!-- Format Cards -->
+    <div class="formats-grid">
+        <!-- Format 1: HTML -->
+        <div class="format-card">
+            <div class="badge-new"><i class="fas fa-star"></i> Interactive</div>
+            <div class="format-icon">
+                <i class="fas fa-code"></i>
+            </div>
+            <div class="format-name">HTML Format</div>
+            <div class="format-type">Web Application</div>
+            <div class="format-description">
+                Interactive web application with drag-and-drop upload and real-time compression metrics.
+            </div>
+            <ul class="format-features">
+                <li><i class="fas fa-check"></i> Upload images directly</li>
+                <li><i class="fas fa-check"></i> Real-time metrics</li>
+                <li><i class="fas fa-check"></i> Before/after slider</li>
+                <li><i class="fas fa-check"></i> Works in browser</li>
+            </ul>
+            <a href="./html/index.html" class="btn-access" target="_blank">
+                <i class="fas fa-play"></i> Try Now
+            </a>
+        </div>
+
+        <!-- Format 2: JSON -->
+        <div class="format-card">
+            <div class="badge-new"><i class="fas fa-database"></i> API Ready</div>
+            <div class="format-icon">
+                <i class="fas fa-brackets-curly"></i>
+            </div>
+            <div class="format-name">JSON Format</div>
+            <div class="format-type">Data & API</div>
+            <div class="format-description">
+                Complete structured data format for API integration and developer use.
+            </div>
+            <ul class="format-features">
+                <li><i class="fas fa-check"></i> Full API spec</li>
+                <li><i class="fas fa-check"></i> All metrics included</li>
+                <li><i class="fas fa-check"></i> Deployment configs</li>
+                <li><i class="fas fa-check"></i> Easy parsing</li>
+            </ul>
+            <a href="./json/index.json" class="btn-access" target="_blank">
+                <i class="fas fa-external-link"></i> View JSON
+            </a>
+        </div>
+
+        <!-- Format 3: Interactive -->
+        <div class="format-card">
+            <div class="badge-new"><i class="fas fa-chart-bar"></i> Analytics</div>
+            <div class="format-icon">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="format-name">Interactive Viewer</div>
+            <div class="format-type">Data Visualization</div>
+            <div class="format-description">
+                Professional analytics dashboard with charts, comparisons, and research data.
+            </div>
+            <ul class="format-features">
+                <li><i class="fas fa-check"></i> Live charts</li>
+                <li><i class="fas fa-check"></i> Algorithm comparison</li>
+                <li><i class="fas fa-check"></i> Research stats</li>
+                <li><i class="fas fa-check"></i> Performance data</li>
+            </ul>
+            <a href="./interactive/index.html" class="btn-access" target="_blank">
+                <i class="fas fa-play"></i> Try Now
+            </a>
+        </div>
+
+        <!-- Format 4: K2SHBWI -->
+        <div class="format-card">
+            <div class="badge-new"><i class="fas fa-box"></i> Native</div>
+            <div class="format-icon">
+                <i class="fas fa-cube"></i>
+            </div>
+            <div class="format-name">K2SHBWI Format</div>
+            <div class="format-type">Native Package</div>
+            <div class="format-description">
+                Custom K2SHBWI format - native package with complete metadata.
+            </div>
+            <ul class="format-features">
+                <li><i class="fas fa-check"></i> Complete manifest</li>
+                <li><i class="fas fa-check"></i> All components</li>
+                <li><i class="fas fa-check"></i> System specs</li>
+                <li><i class="fas fa-check"></i> Full documentation</li>
+            </ul>
+            <a href="./k2shbwi/index.html" class="btn-access" target="_blank">
+                <i class="fas fa-eye"></i> View Interactive
+            </a>
+        </div>
+
+        <!-- Format 5: PDF -->
+        <div class="format-card">
+            <div class="badge-new"><i class="fas fa-file"></i> Report</div>
+            <div class="format-icon">
+                <i class="fas fa-file-pdf"></i>
+            </div>
+            <div class="format-name">PDF Report</div>
+            <div class="format-type">Printable Document</div>
+            <div class="format-description">
+                Professional report with all metrics, research data, and analysis.
+            </div>
+            <ul class="format-features">
+                <li><i class="fas fa-check"></i> Download as PDF</li>
+                <li><i class="fas fa-check"></i> Print-friendly</li>
+                <li><i class="fas fa-check"></i> Full analysis</li>
+                <li><i class="fas fa-check"></i> Research findings</li>
+            </ul>
+            <a href="./pdf/index.html" class="btn-access" target="_blank">
+                <i class="fas fa-play"></i> Try Now
+            </a>
+        </div>
+
+        <!-- Format 6: Full Demo (Bonus) -->
+        <div class="format-card">
+            <div class="badge-new"><i class="fas fa-rocket"></i> Complete</div>
+            <div class="format-icon">
+                <i class="fas fa-layer-group"></i>
+            </div>
+            <div class="format-name">Full Demo</div>
+            <div class="format-type">Production Platform</div>
+            <div class="format-description">
+                Complete Flask application with backend API and all features integrated.
+            </div>
+            <ul class="format-features">
+                <li><i class="fas fa-check"></i> Flask backend</li>
+                <li><i class="fas fa-check"></i> All 6 pages</li>
+                <li><i class="fas fa-check"></i> API endpoints</li>
+                <li><i class="fas fa-check"></i> Production ready</li>
+            </ul>
+            <a href="../" class="btn-access">
+                <i class="fas fa-arrow-left"></i> Back to Demo
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <h5>Welcome to the Future of Product Demonstrations</h5>
+        <p><strong>K2SHBWI - 5 Interactive Formats</strong></p>
+        <p>Experience advanced image compression in HTML, JSON, Interactive, Native K2SHBWI, and PDF formats</p>
+        <p style="margin-top: 20px; opacity: 0.8;">
+            <small>© 2025 K2SHBWI Team | All formats free and open-source</small>
+        </p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

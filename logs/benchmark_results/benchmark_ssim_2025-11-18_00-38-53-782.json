@@ -1,0 +1,238 @@
+{
+  "timestamp": "2025-11-18T00:38:53.782946+00:00",
+  "logger_name": "benchmark_ssim",
+  "log_type": "benchmark",
+  "system_info": {
+    "python_version": "3.12.1",
+    "platform": "Windows 11"
+  },
+  "metrics": [
+    {
+      "type": "ssim",
+      "timestamp": "2025-11-18T00:38:58.442394+00:00",
+      "image_size": "128x128",
+      "ssim_score": 1.0,
+      "comparison_type": "identical",
+      "processing_time_ms": 919.39,
+      "method": "skimage"
+    },
+    {
+      "type": "ssim",
+      "timestamp": "2025-11-18T00:38:58.442394+00:00",
+      "image_size": "128x128",
+      "ssim_score": 0.009728,
+      "comparison_type": "different",
+      "processing_time_ms": 2.21,
+      "method": "skimage"
+    },
+    {
+      "type": "ssim",
+      "timestamp": "2025-11-18T00:38:58.444557+00:00",
+      "image_size": "128x128",
+      "ssim_score": 1.0,
+      "comparison_type": "identical",
+      "processing_time_ms": 0.27,
+      "method": "numpy"
+    },
+    {
+      "type": "ssim",
+      "timestamp": "2025-11-18T00:38:58.444557+00:00",
+      "image_size": "128x128",
+      "ssim_score": 0.011294,
+      "comparison_type": "different",
+      "processing_time_ms": 0.2,
+      "method": "numpy"
+    },
+    {
+      "type": "ssim",
+      "timestamp": "2025-11-18T00:38:58.528444+00:00",
+      "image_size": "128x128",
+      "ssim_score": 1.0,
+      "comparison_type": "identical",
+      "processing_time_ms": 8.4,
+      "method": "python"
+    },
+    {
+      "type": "ssim",
+      "timestamp": "2025-11-18T00:38:58.528444+00:00",
+      "image_size": "128x128",
+      "ssim_score": 0.011294,
+      "comparison_type": "different",
+      "processing_time_ms": 8.33,
+      "method": "python"
+    },
+    {
+      "type": "ssim",
+      "timestamp": "2025-11-18T00:38:58.814837+00:00",
+      "image_size": "256x256",
+      "ssim_score": 1.0,
+      "comparison_type": "identical",
+      "processing_time_ms": 8.51,
+      "method": "skimage"
+    },
+    {
+      "type": "ssim",
+      "timestamp": "2025-11-18T00:38:58.814837+00:00",
+      "image_size": "256x256",
+      "ssim_score": 0.01728,
+      "comparison_type": "different",
+      "processing_time_ms": 8.59,
+      "method": "skimage"
+    },
+    {
+      "type": "ssim",
+      "timestamp": "2025-11-18T00:38:58.820928+00:00",
+      "image_size": "256x256",
+      "ssim_score": 1.0,
+      "comparison_type": "identical",
+      "processing_time_ms": 0.61,
+      "method": "numpy"
+    },
+    {
+      "type": "ssim",
+      "timestamp": "2025-11-18T00:38:58.820928+00:00",
+      "image_size": "256x256",
+      "ssim_score": 0.018386,
+      "comparison_type": "different",
+      "processing_time_ms": 0.51,
+      "method": "numpy"
+    },
+    {
+      "type": "ssim",
+      "timestamp": "2025-11-18T00:38:59.157543+00:00",
+      "image_size": "256x256",
+      "ssim_score": 1.0,
+      "comparison_type": "identical",
+      "processing_time_ms": 33.92,
+      "method": "python"
+    },
+    {
+      "type": "ssim",
+      "timestamp": "2025-11-18T00:38:59.157543+00:00",
+      "image_size": "256x256",
+      "ssim_score": 0.018386,
+      "comparison_type": "different",
+      "processing_time_ms": 33.46,
+      "method": "python"
+    },
+    {
+      "type": "ssim",
+      "timestamp": "2025-11-18T00:39:00.518722+00:00",
+      "image_size": "512x512",
+      "ssim_score": 1.0,
+      "comparison_type": "identical",
+      "processing_time_ms": 61.19,
+      "method": "skimage"
+    },
+    {
+      "type": "ssim",
+      "timestamp": "2025-11-18T00:39:00.518722+00:00",
+      "image_size": "512x512",
+      "ssim_score": 0.010352,
+      "comparison_type": "different",
+      "processing_time_ms": 55.76,
+      "method": "skimage"
+    },
+    {
+      "type": "ssim",
+      "timestamp": "2025-11-18T00:39:00.572397+00:00",
+      "image_size": "512x512",
+      "ssim_score": 1.0,
+      "comparison_type": "identical",
+      "processing_time_ms": 5.29,
+      "method": "numpy"
+    },
+    {
+      "type": "ssim",
+      "timestamp": "2025-11-18T00:39:00.572397+00:00",
+      "image_size": "512x512",
+      "ssim_score": 0.009842,
+      "comparison_type": "different",
+      "processing_time_ms": 5.38,
+      "method": "numpy"
+    },
+    {
+      "type": "ssim",
+      "timestamp": "2025-11-18T00:39:00.979500+00:00",
+      "image_size": "512x512",
+      "ssim_score": 1.0,
+      "comparison_type": "identical",
+      "processing_time_ms": 40.65,
+      "method": "python"
+    },
+    {
+      "type": "ssim",
+      "timestamp": "2025-11-18T00:39:00.979500+00:00",
+      "image_size": "512x512",
+      "ssim_score": 0.054161,
+      "comparison_type": "different",
+      "processing_time_ms": 40.76,
+      "method": "python"
+    },
+    {
+      "type": "ssim",
+      "timestamp": "2025-11-18T00:39:06.334009+00:00",
+      "image_size": "1024x1024",
+      "ssim_score": 1.0,
+      "comparison_type": "identical",
+      "processing_time_ms": 222.12,
+      "method": "skimage"
+    },
+    {
+      "type": "ssim",
+      "timestamp": "2025-11-18T00:39:06.334009+00:00",
+      "image_size": "1024x1024",
+      "ssim_score": 0.012007,
+      "comparison_type": "different",
+      "processing_time_ms": 225.48,
+      "method": "skimage"
+    },
+    {
+      "type": "ssim",
+      "timestamp": "2025-11-18T00:39:06.562724+00:00",
+      "image_size": "1024x1024",
+      "ssim_score": 1.0,
+      "comparison_type": "identical",
+      "processing_time_ms": 23.2,
+      "method": "numpy"
+    },
+    {
+      "type": "ssim",
+      "timestamp": "2025-11-18T00:39:06.562724+00:00",
+      "image_size": "1024x1024",
+      "ssim_score": 0.012123,
+      "comparison_type": "different",
+      "processing_time_ms": 22.46,
+      "method": "numpy"
+    },
+    {
+      "type": "ssim",
+      "timestamp": "2025-11-18T00:39:07.013115+00:00",
+      "image_size": "1024x1024",
+      "ssim_score": 1.0,
+      "comparison_type": "identical",
+      "processing_time_ms": 45.24,
+      "method": "python"
+    },
+    {
+      "type": "ssim",
+      "timestamp": "2025-11-18T00:39:07.013115+00:00",
+      "image_size": "1024x1024",
+      "ssim_score": 0.198106,
+      "comparison_type": "different",
+      "processing_time_ms": 44.83,
+      "method": "python"
+    }
+  ],
+  "summary": {
+    "total_metrics": 24,
+    "total_original_bytes": 0,
+    "total_compressed_bytes": 0,
+    "average_compression_ratio_percent": 0.0,
+    "total_processing_time_ms": 1816.76,
+    "error_count": 0,
+    "image_sizes_tested": 4,
+    "methods_tested": 3,
+    "benchmark_type": "ssim_quality_and_speed"
+  }
+}
