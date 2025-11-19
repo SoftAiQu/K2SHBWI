@@ -31,7 +31,6 @@ K2SHBWI embeds **rich metadata and interactive hotspots** directly into image fi
 
 **Click below to see the complete `.k2shbwi` format** - rendered live in your browser!
 
-[![K2SHBWI Native Format](https://img.shields.io/badge/🎨%20View%20Native%20K2SHBWI%20Format-Historic%20First%20%7C%20GitHub%20Renders%20Natively%20%7C%2087.3%25%20Compression%20%7C%20Zero%20Setup-9C27B0?style=for-the-badge)](demo/formats/k2shbwi/sample_format.k2shbwi)
 
 [![K2SHBWI ULTIMATE](https://img.shields.io/badge/🎨%20ULTIMATE-Historic%20First%20%7C%2087.3%25%20Compression%20%7C%20Zero%20Setup-FF6B00?style=for-the-badge)](demo/formats/k2shbwi/sample_format.k2shbwi)
 
