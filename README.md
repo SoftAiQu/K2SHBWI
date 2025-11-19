@@ -5,7 +5,7 @@
 ![Python](https://img.shields.io/badge/Python-3.12%2B-blue)
 ![Version](https://img.shields.io/badge/Version-1.0.0-blue)
 
-[![K2SHBWI Native Format](https://img.shields.io/badge/🎨%20View%20Native%20K2SHBWI%20Format-Historic%20First%20%7C%20GitHub%20Renders%20Natively-9C27B0?style=for-the-badge)](https://raw.githubusercontent.com/Ritam-jash/K2SHBWI/main/demo/formats/k2shbwi/sample_format.k2shbwi)
+[![K2SHBWI Native Format](https://img.shields.io/badge/🎨%20View%20Native%20K2SHBWI%20Format-Historic%20First%20%7C%20GitHub%20Renders%20Natively-9C27B0?style=for-the-badge)](https://htmlpreview.github.io/?https://github.com/Ritam-jash/K2SHBWI/blob/main/demo/formats/k2shbwi/sample_format.k2shbwi)
 
 ## Overview
 
@@ -32,7 +32,7 @@ K2SHBWI embeds **rich metadata and interactive hotspots** directly into image fi
 **Click below to see the complete `.k2shbwi` format** - rendered live in your browser!
 
 
-[![K2SHBWI ULTIMATE](https://img.shields.io/badge/🎨%20ULTIMATE-Historic%20First%20%7C%2087.3%25%20Compression%20%7C%20Zero%20Setup-FF6B00?style=for-the-badge)](demo/formats/k2shbwi/sample_format.k2shbwi)
+[![K2SHBWI ULTIMATE](https://img.shields.io/badge/🎨%20ULTIMATE-Historic%20First%20%7C%2087.3%25%20Compression%20%7C%20Zero%20Setup-FF6B00?style=for-the-badge)](https://ghproxy.com/https://raw.githubusercontent.com/Ritam-jash/K2SHBWI/main/demo/formats/k2shbwi/sample_format.k2shbwi)
 
 This interactive package includes:
 - ✅ Performance metrics & specifications
