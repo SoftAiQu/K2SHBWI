@@ -28,8 +28,11 @@ jobs:
             python -m pip install pillow pytest numpy scikit-image || true;
           fi
 
+      - name: Install package
+        run: pip install -e .
+
       - name: Run tests
-        run: pytest -q
+        run: python tests/comprehensive_test_suite.py  # ← CHANGED THIS LINE
 
       - name: Run SSIM micro-benchmark (best-effort)
         shell: bash

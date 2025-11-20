@@ -1,0 +1,234 @@
+{
+  "timestamp": "2025-11-20T01:26:41.488880+00:00",
+  "logger_name": "comprehensive_test_suite",
+  "log_type": "test",
+  "system_info": {
+    "python_version": "3.12.1",
+    "platform": "Windows 11"
+  },
+  "metrics": [
+    {
+      "type": "test",
+      "timestamp": "2025-11-20T01:26:42.869624+00:00",
+      "test_name": "Create Command",
+      "status": "PASS",
+      "input_bytes": 0,
+      "output_bytes": 0,
+      "compression_ratio_percent": 0.0,
+      "compression_type": "N/A",
+      "processing_time_ms": 1380.74
+    },
+    {
+      "type": "test",
+      "timestamp": "2025-11-20T01:26:43.652380+00:00",
+      "test_name": "Create with Metadata",
+      "status": "PASS",
+      "input_bytes": 0,
+      "output_bytes": 0,
+      "compression_ratio_percent": 0.0,
+      "compression_type": "N/A",
+      "processing_time_ms": 782.76
+    },
+    {
+      "type": "test",
+      "timestamp": "2025-11-20T01:26:44.420322+00:00",
+      "test_name": "Info Command",
+      "status": "PASS",
+      "input_bytes": 0,
+      "output_bytes": 0,
+      "compression_ratio_percent": 0.0,
+      "compression_type": "N/A",
+      "processing_time_ms": 767.94
+    },
+    {
+      "type": "test",
+      "timestamp": "2025-11-20T01:26:45.183626+00:00",
+      "test_name": "Validate Command",
+      "status": "PASS",
+      "input_bytes": 0,
+      "output_bytes": 0,
+      "compression_ratio_percent": 0.0,
+      "compression_type": "N/A",
+      "processing_time_ms": 762.23
+    },
+    {
+      "type": "test",
+      "timestamp": "2025-11-20T01:26:45.974141+00:00",
+      "test_name": "Decode Command",
+      "status": "PASS",
+      "input_bytes": 0,
+      "output_bytes": 0,
+      "compression_ratio_percent": 0.0,
+      "compression_type": "N/A",
+      "processing_time_ms": 790.51
+    },
+    {
+      "type": "test",
+      "timestamp": "2025-11-20T01:26:46.755459+00:00",
+      "test_name": "Batch Command",
+      "status": "PASS",
+      "input_bytes": 0,
+      "output_bytes": 0,
+      "compression_ratio_percent": 0.0,
+      "compression_type": "N/A",
+      "processing_time_ms": 781.32
+    },
+    {
+      "type": "test",
+      "timestamp": "2025-11-20T01:26:47.574045+00:00",
+      "test_name": "Encode Command",
+      "status": "PASS",
+      "input_bytes": 0,
+      "output_bytes": 0,
+      "compression_ratio_percent": 0.0,
+      "compression_type": "N/A",
+      "processing_time_ms": 818.59
+    },
+    {
+      "type": "test",
+      "timestamp": "2025-11-20T01:26:48.519504+00:00",
+      "test_name": "Convert to HTML",
+      "status": "PASS",
+      "input_bytes": 0,
+      "output_bytes": 0,
+      "compression_ratio_percent": 0.0,
+      "compression_type": "N/A",
+      "processing_time_ms": 945.46
+    },
+    {
+      "type": "test",
+      "timestamp": "2025-11-20T01:26:49.422266+00:00",
+      "test_name": "Convert to PDF",
+      "status": "PASS",
+      "input_bytes": 0,
+      "output_bytes": 0,
+      "compression_ratio_percent": 0.0,
+      "compression_type": "N/A",
+      "processing_time_ms": 901.16
+    },
+    {
+      "type": "test",
+      "timestamp": "2025-11-20T01:26:50.260323+00:00",
+      "test_name": "Convert to PPTX",
+      "status": "PASS",
+      "input_bytes": 0,
+      "output_bytes": 0,
+      "compression_ratio_percent": 0.0,
+      "compression_type": "N/A",
+      "processing_time_ms": 838.06
+    },
+    {
+      "type": "test",
+      "timestamp": "2025-11-20T01:26:52.560371+00:00",
+      "test_name": "All Conversion Formats",
+      "status": "PASS",
+      "input_bytes": 0,
+      "output_bytes": 0,
+      "compression_ratio_percent": 0.0,
+      "compression_type": "N/A",
+      "processing_time_ms": 2300.05
+    },
+    {
+      "type": "test",
+      "timestamp": "2025-11-20T01:26:53.271958+00:00",
+      "test_name": "View Command Help",
+      "status": "PASS",
+      "input_bytes": 0,
+      "output_bytes": 0,
+      "compression_ratio_percent": 0.0,
+      "compression_type": "N/A",
+      "processing_time_ms": 709.92
+    },
+    {
+      "type": "test",
+      "timestamp": "2025-11-20T01:26:58.782289+00:00",
+      "test_name": "All Commands Have Help",
+      "status": "PASS",
+      "input_bytes": 0,
+      "output_bytes": 0,
+      "compression_ratio_percent": 0.0,
+      "compression_type": "N/A",
+      "processing_time_ms": 5510.33
+    },
+    {
+      "type": "test",
+      "timestamp": "2025-11-20T01:27:00.951229+00:00",
+      "test_name": "Create Multiple Files",
+      "status": "PASS",
+      "input_bytes": 0,
+      "output_bytes": 0,
+      "compression_ratio_percent": 0.0,
+      "compression_type": "N/A",
+      "processing_time_ms": 2168.94
+    },
+    {
+      "type": "test",
+      "timestamp": "2025-11-20T01:27:04.455025+00:00",
+      "test_name": "Validate All Outputs",
+      "status": "PASS",
+      "input_bytes": 0,
+      "output_bytes": 0,
+      "compression_ratio_percent": 0.0,
+      "compression_type": "N/A",
+      "processing_time_ms": 3503.8
+    },
+    {
+      "type": "test",
+      "timestamp": "2025-11-20T01:27:05.159926+00:00",
+      "test_name": "Verbose Output",
+      "status": "PASS",
+      "input_bytes": 0,
+      "output_bytes": 0,
+      "compression_ratio_percent": 0.0,
+      "compression_type": "N/A",
+      "processing_time_ms": 704.9
+    },
+    {
+      "type": "test",
+      "timestamp": "2025-11-20T01:27:05.866466+00:00",
+      "test_name": "CLI Version Display",
+      "status": "PASS",
+      "input_bytes": 0,
+      "output_bytes": 0,
+      "compression_ratio_percent": 0.0,
+      "compression_type": "N/A",
+      "processing_time_ms": 705.26
+    },
+    {
+      "type": "test",
+      "timestamp": "2025-11-20T01:27:06.595140+00:00",
+      "test_name": "Main Help",
+      "status": "PASS",
+      "input_bytes": 0,
+      "output_bytes": 0,
+      "compression_ratio_percent": 0.0,
+      "compression_type": "N/A",
+      "processing_time_ms": 728.67
+    },
+    {
+      "type": "test",
+      "timestamp": "2025-11-20T01:27:07.312459+00:00",
+      "test_name": "Command Examples",
+      "status": "PASS",
+      "input_bytes": 0,
+      "output_bytes": 0,
+      "compression_ratio_percent": 0.0,
+      "compression_type": "N/A",
+      "processing_time_ms": 717.32
+    }
+  ],
+  "summary": {
+    "total_metrics": 19,
+    "total_original_bytes": 0,
+    "total_compressed_bytes": 0,
+    "average_compression_ratio_percent": 0.0,
+    "total_processing_time_ms": 25817.96,
+    "error_count": 0,
+    "test_suite": "comprehensive_test_suite",
+    "total_tests": 19,
+    "passed_tests": 19,
+    "failed_tests": 0,
+    "total_time_seconds": 25.82357907295227,
+    "success_rate_percent": 100.0
+  }
+}

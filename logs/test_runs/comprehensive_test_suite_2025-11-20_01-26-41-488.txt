@@ -1,0 +1,216 @@
+================================================================================
+K2SHBWI TEST LOG REPORT
+================================================================================
+
+Timestamp: 2025-11-20T01:26:41.488880+00:00
+Logger: comprehensive_test_suite
+Type: test
+
+System Information:
+  Python: 3.12.1
+  Platform: Windows 11
+
+Summary:
+  Total Metrics: 19
+  Original Bytes: 0
+  Compressed Bytes: 0
+  Average Compression: 0.00%
+  Total Time: 25817.96ms
+  Errors: 0
+
+Detailed Metrics:
+--------------------------------------------------------------------------------
+
+[1] TEST
+    Timestamp: 2025-11-20T01:26:42.869624+00:00
+    Test: Create Command
+    Input: 0 bytes
+    Output: 0 bytes
+    Ratio: 0.00%
+    Type: N/A
+    Time: 1380.74ms
+    Status: PASS
+
+[2] TEST
+    Timestamp: 2025-11-20T01:26:43.652380+00:00
+    Test: Create with Metadata
+    Input: 0 bytes
+    Output: 0 bytes
+    Ratio: 0.00%
+    Type: N/A
+    Time: 782.76ms
+    Status: PASS
+
+[3] TEST
+    Timestamp: 2025-11-20T01:26:44.420322+00:00
+    Test: Info Command
+    Input: 0 bytes
+    Output: 0 bytes
+    Ratio: 0.00%
+    Type: N/A
+    Time: 767.94ms
+    Status: PASS
+
+[4] TEST
+    Timestamp: 2025-11-20T01:26:45.183626+00:00
+    Test: Validate Command
+    Input: 0 bytes
+    Output: 0 bytes
+    Ratio: 0.00%
+    Type: N/A
+    Time: 762.23ms
+    Status: PASS
+
+[5] TEST
+    Timestamp: 2025-11-20T01:26:45.974141+00:00
+    Test: Decode Command
+    Input: 0 bytes
+    Output: 0 bytes
+    Ratio: 0.00%
+    Type: N/A
+    Time: 790.51ms
+    Status: PASS
+
+[6] TEST
+    Timestamp: 2025-11-20T01:26:46.755459+00:00
+    Test: Batch Command
+    Input: 0 bytes
+    Output: 0 bytes
+    Ratio: 0.00%
+    Type: N/A
+    Time: 781.32ms
+    Status: PASS
+
+[7] TEST
+    Timestamp: 2025-11-20T01:26:47.574045+00:00
+    Test: Encode Command
+    Input: 0 bytes
+    Output: 0 bytes
+    Ratio: 0.00%
+    Type: N/A
+    Time: 818.59ms
+    Status: PASS
+
+[8] TEST
+    Timestamp: 2025-11-20T01:26:48.519504+00:00
+    Test: Convert to HTML
+    Input: 0 bytes
+    Output: 0 bytes
+    Ratio: 0.00%
+    Type: N/A
+    Time: 945.46ms
+    Status: PASS
+
+[9] TEST
+    Timestamp: 2025-11-20T01:26:49.422266+00:00
+    Test: Convert to PDF
+    Input: 0 bytes
+    Output: 0 bytes
+    Ratio: 0.00%
+    Type: N/A
+    Time: 901.16ms
+    Status: PASS
+
+[10] TEST
+    Timestamp: 2025-11-20T01:26:50.260323+00:00
+    Test: Convert to PPTX
+    Input: 0 bytes
+    Output: 0 bytes
+    Ratio: 0.00%
+    Type: N/A
+    Time: 838.06ms
+    Status: PASS
+
+[11] TEST
+    Timestamp: 2025-11-20T01:26:52.560371+00:00
+    Test: All Conversion Formats
+    Input: 0 bytes
+    Output: 0 bytes
+    Ratio: 0.00%
+    Type: N/A
+    Time: 2300.05ms
+    Status: PASS
+
+[12] TEST
+    Timestamp: 2025-11-20T01:26:53.271958+00:00
+    Test: View Command Help
+    Input: 0 bytes
+    Output: 0 bytes
+    Ratio: 0.00%
+    Type: N/A
+    Time: 709.92ms
+    Status: PASS
+
+[13] TEST
+    Timestamp: 2025-11-20T01:26:58.782289+00:00
+    Test: All Commands Have Help
+    Input: 0 bytes
+    Output: 0 bytes
+    Ratio: 0.00%
+    Type: N/A
+    Time: 5510.33ms
+    Status: PASS
+
+[14] TEST
+    Timestamp: 2025-11-20T01:27:00.951229+00:00
+    Test: Create Multiple Files
+    Input: 0 bytes
+    Output: 0 bytes
+    Ratio: 0.00%
+    Type: N/A
+    Time: 2168.94ms
+    Status: PASS
+
+[15] TEST
+    Timestamp: 2025-11-20T01:27:04.455025+00:00
+    Test: Validate All Outputs
+    Input: 0 bytes
+    Output: 0 bytes
+    Ratio: 0.00%
+    Type: N/A
+    Time: 3503.80ms
+    Status: PASS
+
+[16] TEST
+    Timestamp: 2025-11-20T01:27:05.159926+00:00
+    Test: Verbose Output
+    Input: 0 bytes
+    Output: 0 bytes
+    Ratio: 0.00%
+    Type: N/A
+    Time: 704.90ms
+    Status: PASS
+
+[17] TEST
+    Timestamp: 2025-11-20T01:27:05.866466+00:00
+    Test: CLI Version Display
+    Input: 0 bytes
+    Output: 0 bytes
+    Ratio: 0.00%
+    Type: N/A
+    Time: 705.26ms
+    Status: PASS
+
+[18] TEST
+    Timestamp: 2025-11-20T01:27:06.595140+00:00
+    Test: Main Help
+    Input: 0 bytes
+    Output: 0 bytes
+    Ratio: 0.00%
+    Type: N/A
+    Time: 728.67ms
+    Status: PASS
+
+[19] TEST
+    Timestamp: 2025-11-20T01:27:07.312459+00:00
+    Test: Command Examples
+    Input: 0 bytes
+    Output: 0 bytes
+    Ratio: 0.00%
+    Type: N/A
+    Time: 717.32ms
+    Status: PASS
+
+================================================================================
+END OF REPORT
+================================================================================
