@@ -43,10 +43,7 @@
 
   "research_statistics": {
     "images_analyzed": 1247,
-    "research_hours": 500,
-    "publications": 3,
-    "total_citations": 105,
-    "peer_reviewed": true
+    "research_hours": 500
   },
 
   "image_types_supported": [
@@ -252,7 +249,7 @@
     "quickstart": "QUICKSTART.md",
     "api_docs": "API.md",
     "contributing": "CONTRIBUTING.md",
-    "github_repo": "https://github.com/ritam-jash/k2shbwi"
+    "github_repo": "https://github.com/SoftAiQu/K2SHBWI"
   },
 
   "features": [

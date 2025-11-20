@@ -5,9 +5,7 @@
     "average_compression_ratio": 87.3,
     "average_quality_preserved": 96.8,
     "average_processing_speed_mbps": 2.1,
-    "research_hours": 500,
-    "publications": 3,
-    "citations": 105
+    "research_hours": 500
   },
   "algorithm_comparison": {
     "algorithms": [
@@ -132,23 +130,6 @@
       "99.8% success rate across all image types",
       "Outperforms HEIC in speed and quality"
     ],
-    "conferences": [
-      {
-        "name": "IEEE International Conference on Image Processing",
-        "year": 2024,
-        "citations": 45
-      },
-      {
-        "name": "ACM Conference on Image and Video Retrieval",
-        "year": 2023,
-        "citations": 32
-      },
-      {
-        "name": "Journal of Image Processing Research",
-        "year": 2023,
-        "citations": 28
-      }
-    ]
   },
   "performance_benchmarks": {
     "cpu_usage_percent": 45.2,

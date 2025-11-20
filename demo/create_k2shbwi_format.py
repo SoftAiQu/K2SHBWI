@@ -402,14 +402,14 @@ def create_standalone_k2shbwi_file(manifest_data, output_path="format.k2shbwi"):
                     <p>Extensive testing</p>
                 </div>
                 <div class="info-card">
-                    <h3>📝 Publications</h3>
-                    <p style="font-size: 1.8rem; color: #667eea; font-weight: bold;">3</p>
-                    <p>Peer-reviewed papers</p>
+                    <h3>✅ Success Rate</h3>
+                    <p style="font-size: 1.8rem; color: #667eea; font-weight: bold;">99.8%</p>
+                    <p>Reliable performance</p>
                 </div>
                 <div class="info-card">
-                    <h3>📚 Citations</h3>
-                    <p style="font-size: 1.8rem; color: #667eea; font-weight: bold;">105</p>
-                    <p>Academic recognition</p>
+                    <h3>🎯 Formats</h3>
+                    <p style="font-size: 1.8rem; color: #667eea; font-weight: bold;">4</p>
+                    <p>JPEG, PNG, WebP, GIF</p>
                 </div>
             </div>
         </div>

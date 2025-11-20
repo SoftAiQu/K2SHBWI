@@ -239,7 +239,6 @@ def get_research_stats():
         'min_quality': 85.3,
         'datasets_used': 12,
         'research_hours': 500,
-        'publications': 3,
         'contributors': 15
     }
     return jsonify(stats)

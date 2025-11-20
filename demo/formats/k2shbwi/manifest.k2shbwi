@@ -13,7 +13,7 @@
     "version": "1.0.0",
     "status": "production_ready",
     "owner": "Ritam Jash",
-    "repository": "https://github.com/ritam-jash/k2shbwi"
+    "repository": "https://github.com/SoftAiQu/k2shbwi"
   },
 
   "performance_specs": {
@@ -235,10 +235,7 @@
   "research_data": {
     "dataset": {
       "total_images": 1247,
-      "test_duration_hours": 500,
-      "peer_reviewed": true,
-      "publications": 3,
-      "citations": 105
+      "test_duration_hours": 500
     },
     "image_distribution": {
       "jpeg": {

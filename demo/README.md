@@ -137,7 +137,7 @@ python app.py
 - **Algorithm Comparison**: Heatmap of performance
 - **Performance Metrics**: Detailed comparison table
 - **Key Findings**: Research highlights
-- **Publications**: Academic papers
+- **Research Hours**: 500+ hours of development and testing
 
 ### About (`/about`)
 - Project overview

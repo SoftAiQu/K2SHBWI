@@ -20,7 +20,7 @@
 
 <br/>
 
-[![K2SHBWI ULTIMATE](https://img.shields.io/badge/🎨%20EXPERIENCE%20LIVE%20DEMO-Interactive%20Format%20%7C%20Zero%20Setup%20%7C%20100%25%20Offline-9C27B0?style=for-the-badge&labelColor=1a1a2e)](https://htmlpreview.github.io/?https://github.com/Ritam-jash/K2SHBWI/blob/main/demo/formats/k2shbwi/sample_format.k2shbwi)
+[![K2SHBWI ULTIMATE](https://img.shields.io/badge/🎨%20EXPERIENCE%20LIVE%20DEMO-Interactive%20Format%20%7C%20Zero%20Setup%20%7C%20100%25%20Offline-9C27B0?style=for-the-badge&labelColor=1a1a2e)](https://htmlpreview.github.io/?https://github.com/SoftAiQu/K2SHBWI/blob/main/demo/formats/k2shbwi/sample_format.k2shbwi)
 
 </div>
 
@@ -111,7 +111,7 @@ Built-in validation ensures
 
 ```bash
 # Clone the repository
-git clone https://github.com/Ritam-jash/K2SHBWI.git
+git clone https://github.com/SoftAiQu/K2SHBWI.git
 cd K2SHBWI
 
 # Create virtual environment
@@ -419,15 +419,15 @@ python comprehensive_test_suite.py
 </div>
 
 <p align="center">
-  <a href="https://htmlpreview.github.io/?https://github.com/Ritam-jash/K2SHBWI/blob/main/demo/formats/k2shbwi/sample_format.k2shbwi">
+  <a href="https://htmlpreview.github.io/?https://github.com/SoftAiQu/K2SHBWI/blob/main/demo/formats/k2shbwi/sample_format.k2shbwi">
     <img src="https://img.shields.io/badge/🎨%20K2SHBWI%20ULTIMATE-Interactive%20Format-FF6B00?style=for-the-badge&labelColor=1a1a2e" alt="K2SHBWI Ultimate"/>
   </a>
   <br/>
-  <a href="https://htmlpreview.github.io/?https://github.com/Ritam-jash/K2SHBWI/blob/main/demo/formats/interactive/index.html">
+  <a href="https://htmlpreview.github.io/?https://github.com/SoftAiQu/K2SHBWI/blob/main/demo/formats/interactive/index.html">
     <img src="https://img.shields.io/badge/🌐%20Interactive%20HTML-Live%20Demo-00D9FF?style=for-the-badge&labelColor=1a1a2e" alt="Interactive HTML"/>
   </a>
   <br/>
-  <a href="https://htmlpreview.github.io/?https://github.com/Ritam-jash/K2SHBWI/blob/main/demo/showcase_hub.html">
+  <a href="https://htmlpreview.github.io/?https://github.com/SoftAiQu/K2SHBWI/blob/main/demo/showcase_hub.html">
     <img src="https://img.shields.io/badge/🎭%20Full%20Showcase-Experience%20All-9C27B0?style=for-the-badge&labelColor=1a1a2e" alt="Full Showcase"/>
   </a>
 </p>
@@ -547,7 +547,7 @@ python tools/cli_click.py view file.k2sh -t web
 ✅ /tests/      Test suite
 ```
 
-### 🔒 **Private - Local Only** (`.gitignore`)
+### 🔒 **Privacy & Security**
 
 ```
 🔒 /logs/logs_development/           Development history

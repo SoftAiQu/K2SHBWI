@@ -238,7 +238,7 @@ Project_Detailds/           ← Sensitive implementation
 - **[Main README](../README.md)** - Start here for project overview
 - **[Getting Started](01-getting-started/)** - Install and setup
 - **[Contributing](../CONTRIBUTING.md)** - How to contribute
-- **[GitHub Repository](https://github.com/Ritam-jash/K2SHBWI)** - Source code
+- **[GitHub Repository](https://github.com/SoftAiQu/K2SHBWI)** - Source code
 
 ---
 

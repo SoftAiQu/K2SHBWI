@@ -4,39 +4,43 @@ This folder contains detailed how-to guides for different use cases and features
 
 ## 📚 What's in This Folder?
 
-| File | Purpose | Audience |
-|------|---------|----------|
-| **01-cli-comprehensive-guide.md** | Complete CLI reference | All users |
-| **02-creating-k2sh-files.md** | Step-by-step file creation | Content creators |
-| **03-converting-formats.md** | Import HTML, PDF, PowerPoint | Format conversion |
-| **04-using-viewers.md** | Web and desktop viewers | All users |
-| **05-best-practices.md** | Tips for quality K2SH files | Advanced users |
-| **06-gui-creator-guide.md** | GUI Creator tool (when released) | Non-technical users |
+This folder contains comprehensive guides for K2SHBWI. Detailed guides are being developed and will be added here.
+
+**Currently Available:**
+- This README file with guide overview
+
+**Coming Soon:**
+- Complete CLI reference guide
+- Step-by-step file creation tutorial
+- Format conversion guides (HTML, PDF, PowerPoint)
+- Viewer usage guide (web and desktop)
+- Best practices and optimization tips
+- GUI Creator guide (when released)
 
 ## 🎯 Choose Your Guide
 
 ### "I want to create K2SH files"
-→ Read `02-creating-k2sh-files.md` + `05-best-practices.md`
+→ See the main README.md for CLI commands and examples
 
 ### "I want to use the CLI"
-→ Read `01-cli-comprehensive-guide.md`
+→ Check the main README.md for complete CLI command reference
 
 ### "I want to convert from other formats"
-→ Read `03-converting-formats.md`
+→ Use the `convert` command (see main README.md for details)
 
 ### "I want to view K2SH files"
-→ Read `04-using-viewers.md`
+→ Use the `view` command with `-t web` or `-t desktop` option
 
 ### "I want a visual tool (no command line)"
-→ Read `06-gui-creator-guide.md` (coming soon!)
+→ GUI Creator coming soon! For now, use the CLI commands
 
 ## 📊 Guide Complexity Levels
 
-| Level | Description | Files |
-|-------|-------------|-------|
-| 🟢 **Beginner** | Simple, step-by-step guides | 02, 04, 06 |
-| 🟡 **Intermediate** | Real-world examples, more features | 01, 03 |
-| 🔴 **Advanced** | Optimization, best practices | 05 |
+| Level | Description | Status |
+|-------|-------------|--------|
+| 🟢 **Beginner** | Simple, step-by-step guides | Coming Soon |
+| 🟡 **Intermediate** | Real-world examples, more features | Coming Soon |
+| 🔴 **Advanced** | Optimization, best practices | Coming Soon |
 
 ## 🔗 Related Documentation
 
@@ -47,8 +51,8 @@ This folder contains detailed how-to guides for different use cases and features
 
 ## ✅ Before You Start
 
-- ✅ K2SHBWI installed (`pip install k2shbwi`)
-- ✅ Read `/docs/01-getting-started/02-quick-start.md`
+- ✅ K2SHBWI installed (see main README.md for installation)
+- ✅ Read `/docs/01-getting-started/README.md` for quick start
 - ✅ Have sample images/files ready
 
 ## 💡 Quick Tips
@@ -58,53 +62,18 @@ This folder contains detailed how-to guides for different use cases and features
 - **Check FAQ** if you get stuck
 - **See examples** in `/docs/08-use-cases/`
 
-## 📝 File Descriptions
+## 📝 Guide Topics (Coming Soon)
 
-### 01-cli-comprehensive-guide.md
-Complete reference for command-line interface:
-- All 8 CLI commands explained
-- Usage examples
-- Options and flags
-- Troubleshooting CLI issues
+**Detailed guides covering:**
 
-### 02-creating-k2sh-files.md
-Learn to create K2SH files from scratch:
-- Python API overview
-- Adding hotspots
-- Setting metadata
-- Compression options
-- Real examples
+- **CLI Comprehensive Guide**: Complete reference for all 8 CLI commands with examples
+- **Creating K2SH Files**: Step-by-step tutorials for file creation
+- **Format Conversion**: Converting HTML, PDF, and PowerPoint to K2SH format
+- **Using Viewers**: Web and desktop viewer features and usage
+- **Best Practices**: Optimization tips and professional file creation
+- **GUI Creator**: Visual tool guide (when released)
 
-### 03-converting-formats.md
-Convert existing files to K2SH:
-- HTML to K2SH
-- PDF to K2SH
-- PowerPoint to K2SH
-- Batch conversion
-- Preserving formatting
-
-### 04-using-viewers.md
-View and interact with K2SH files:
-- Web viewer features
-- Desktop viewer features
-- Keyboard shortcuts
-- Embedding in websites
-- Mobile viewing
-
-### 05-best-practices.md
-Tips for professional K2SH files:
-- File size optimization
-- Image quality settings
-- Hotspot design
-- Metadata best practices
-- Performance tuning
-
-### 06-gui-creator-guide.md
-Visual tool for creating K2SH files (Coming Soon):
-- Feature overview
-- Installation (when released)
-- Step-by-step usage
-- Tips for non-technical users
+**For now, see the main README.md for CLI commands and usage examples.**
 
 ---
 
