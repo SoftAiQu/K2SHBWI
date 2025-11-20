@@ -29,9 +29,9 @@ class TestRunner:
         self.passed = 0
         self.failed = 0
         self.start_time = time.time()
-        self.python_exe = ".\\venv\\Scripts\\python.exe"
+        self.python_exe = 'python'  # Use system Python
         self.cli = "tools\\cli_click.py"
-        
+
         # Initialize logger
         self.logger = TestLogger(logger_name="comprehensive_test_suite", log_type="test")
     

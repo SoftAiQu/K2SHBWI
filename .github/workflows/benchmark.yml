@@ -32,7 +32,7 @@ jobs:
         run: pip install -e .
 
       - name: Run tests
-        run: python tests/comprehensive_test_suite.py  # ← CHANGED THIS LINE
+        run: python tests/comprehensive_test_suite.py  # ← Cleaned up
 
       - name: Run SSIM micro-benchmark (best-effort)
         shell: bash

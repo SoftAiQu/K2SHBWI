@@ -30,5 +30,4 @@ jobs:
           pip install pytest
 
       - name: Run tests
-        run: |
-          python tests/comprehensive_test_suite.py  # ← CHANGED THIS LINE
+        run: python tests/comprehensive_test_suite.py  # ← Cleaned up
