@@ -31,8 +31,14 @@ jobs:
       - name: Install package
         run: pip install -e .
 
+      - name: Create temporary test files
+        run: |
+          python -c "from PIL import Image; Image.new('RGB', (50, 50)).save('test_image.png')"
+          mkdir -p batch_input
+          cp test_image.png batch_input/
+
       - name: Run tests
-        run: python tests/comprehensive_test_suite.py  # ← Cleaned up
+        run: python tests/comprehensive_test_suite.py
 
       - name: Run SSIM micro-benchmark (best-effort)
         shell: bash
