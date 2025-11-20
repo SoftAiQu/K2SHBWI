@@ -20,7 +20,7 @@
 
 <br/>
 
-[![K2SHBWI ULTIMATE](https://img.shields.io/badge/🎨%20EXPERIENCE%20LIVE%20DEMO-87.3%25%20Compression%20%7C%20Zero%20Setup%20%7C%20100%25%20Offline-9C27B0?style=for-the-badge&labelColor=1a1a2e)](https://htmlpreview.github.io/?https://github.com/Ritam-jash/K2SHBWI/blob/main/demo/formats/k2shbwi/sample_format.k2shbwi)
+[![K2SHBWI ULTIMATE](https://img.shields.io/badge/🎨%20EXPERIENCE%20LIVE%20DEMO-Interactive%20Format%20%7C%20Zero%20Setup%20%7C%20100%25%20Offline-9C27B0?style=for-the-badge&labelColor=1a1a2e)](https://htmlpreview.github.io/?https://github.com/Ritam-jash/K2SHBWI/blob/main/demo/formats/k2shbwi/sample_format.k2shbwi)
 
 </div>
 
@@ -362,7 +362,7 @@ K2SHBWI/
 
 **Batch Processing:** `~300ms` for 3 images  
 **Test Suite:** `~20 seconds` (19 tests)  
-**Compression Ratio:** Up to `87.3%`
+**Image Compression:** Up to `87.3%` (algorithm performance, varies by image type)
 
 </div>
 
@@ -420,7 +420,7 @@ python comprehensive_test_suite.py
 
 <p align="center">
   <a href="https://htmlpreview.github.io/?https://github.com/Ritam-jash/K2SHBWI/blob/main/demo/formats/k2shbwi/sample_format.k2shbwi">
-    <img src="https://img.shields.io/badge/🎨%20K2SHBWI%20ULTIMATE-87.3%25%20Compression-FF6B00?style=for-the-badge&labelColor=1a1a2e" alt="K2SHBWI Ultimate"/>
+    <img src="https://img.shields.io/badge/🎨%20K2SHBWI%20ULTIMATE-Interactive%20Format-FF6B00?style=for-the-badge&labelColor=1a1a2e" alt="K2SHBWI Ultimate"/>
   </a>
   <br/>
   <a href="https://htmlpreview.github.io/?https://github.com/Ritam-jash/K2SHBWI/blob/main/demo/formats/interactive/index.html">

@@ -170,6 +170,7 @@ test_no_log.k2sh
 test_p3_decoded.png
 
 
+
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # 5. PRIVATE INTERNAL DOCUMENTATION (Development work and internal analysis)
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -209,9 +210,11 @@ tools/smoke_sample.png       # Sample for smoke tests
 Project_Detailds/
 
 
-# Build info
+# Build info old folder
 k2shbwi.egg-info/
-
+cursor/
+verification_results/
+validation_results.json
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # 8. GITHUB SPECIFIC
